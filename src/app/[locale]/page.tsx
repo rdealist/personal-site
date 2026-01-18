@@ -5,12 +5,15 @@ import { ProjectsPreviewSection } from "@/components/sections/projects-preview-s
 import { SkillsPreviewSection } from "@/components/sections/skills-preview-section";
 import { BlogPreviewSection } from "@/components/sections/blog-preview-section";
 import { CTASection } from "@/components/sections/cta-section";
+import { Hero } from "@/components/misaki/hero";
 
 export default function HomePage() {
   return (
     <>
-      <ParticleBackground />
-      <HeroSection />
+      <Hero />
+      {/* Kept other sections but commented out ParticleBackground as it conflicts with the new style */}
+      {/* <ParticleBackground /> */}
+      {/* <HeroSection /> */}
       <AboutPreviewSection />
       <ProjectsPreviewSection />
       <SkillsPreviewSection />

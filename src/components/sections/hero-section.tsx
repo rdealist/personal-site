@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowRight, BookOpen, Lightbulb, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { gsap } from "gsap";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -22,29 +22,28 @@ export function HeroSection() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
+      // Single key element animation - Hero title only
       gsap.fromTo(
         titleRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
       );
 
       gsap.fromTo(
         subtitleRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power3.out" },
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6, delay: 0.3, ease: "power2.out" },
       );
 
       if (ctaRef.current) {
         gsap.fromTo(
-          ctaRef.current.children,
-          { opacity: 0, y: 20 },
+          ctaRef.current,
+          { opacity: 0 },
           {
             opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: 0.6,
-            stagger: 0.1,
-            ease: "power3.out",
+            duration: 0.6,
+            delay: 0.5,
+            ease: "power2.out",
           },
         );
       }
@@ -56,85 +55,75 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="min-h-screen flex items-center justify-center relative pt-20"
+      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8"
     >
-      <div className="container mx-auto px-4 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
-          <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm text-muted-foreground">{t("badge")}</span>
+      <div className="container mx-auto max-w-5xl text-center">
+        {/* Minimalist Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 border border-border/50">
+          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-sm text-muted-foreground font-medium">
+            {t("badge")}
+          </span>
         </div>
 
-        {/* Title */}
+        {/* Bold Minimalist Title */}
         <h1
           ref={titleRef}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-tight"
+          style={{ fontFamily: "var(--font-heading)" }}
         >
-          {t("greeting")} <span className="text-gradient">Stone</span>
+          {t("greeting")}{" "}
+          <span className="text-gradient inline-block">Stone</span>
           <br />
-          <span className="text-muted-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          <span className="text-muted-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
             {t("tagline")}
           </span>
         </h1>
 
-        {/* Subtitle */}
+        {/* Clean Subtitle */}
         <p
           ref={subtitleRef}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           {t("description")}
         </p>
 
-        {/* CTA Buttons */}
+        {/* Minimalist CTA */}
         <div
           ref={ctaRef}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
             href="/projects"
             className={cn(
-              "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
-              "bg-primary text-primary-foreground font-medium",
-              "hover:opacity-90 transition-all hover:scale-105",
-              "glow-primary",
+              "group inline-flex items-center gap-2 px-8 py-4 rounded-xl",
+              "bg-primary text-primary-foreground font-semibold text-base",
+              "hover:opacity-90 transition-all duration-200 cursor-pointer",
+              "shadow-lg hover:shadow-xl",
             )}
           >
-            <Lightbulb className="w-5 h-5" />
             {t("viewProjects")}
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
           </Link>
 
           <Link
-            href="/notes"
+            href="/contact"
             className={cn(
-              "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
-              "glass font-medium",
-              "hover:bg-primary/10 transition-all hover:scale-105",
+              "inline-flex items-center gap-2 px-8 py-4 rounded-xl",
+              "glass font-semibold text-base border border-border/50",
+              "hover:bg-primary/5 transition-all duration-200 cursor-pointer",
             )}
           >
-            <BookOpen className="w-5 h-5" />
             {t("exploreNotes")}
           </Link>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-sm text-muted-foreground">
+        {/* Minimal Scroll Indicator */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
             {t("scrollToExplore")}
           </span>
-          <svg
-            className="w-5 h-5 text-muted-foreground"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+          <ChevronDown className="w-5 h-5 text-muted-foreground animate-bounce" />
         </div>
       </div>
     </section>

@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* Design System Variables */
+:root {
+  /* Colors - Light Mode */
+  --background: 248 250 252;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --primary: 6 182 212;
+  --primary-foreground: 255 255 255;
+  --secondary: 124 58 237;
+  --secondary-foreground: 255 255 255;
+  --accent: 236 72 153;
+  --accent-foreground: 255 255 255;
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+  --border: 226 232 240;
+  --ring: 6 182 212;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, rgb(6 182 212) 0%, rgb(124 58 237) 50%, rgb(236 72 153) 100%);
+  --gradient-glow: 0 0 60px rgba(6, 182, 212, 0.3);
+}
+
+.dark {
+  /* Colors - Dark Mode */
+  --background: 10 14 23;
+  --foreground: 224 224 255;
+  --card: 30 41 59;
+  --card-foreground: 224 224 255;
+  --primary: 0 255 255;
+  --primary-foreground: 10 14 23;
+  --secondary: 123 97 255;
+  --secondary-foreground: 255 255 255;
+  --accent: 255 0 255;
+  --accent-foreground: 255 255 255;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+  --border: 51 65 85;
+  --ring: 0 255 255;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, rgb(0 255 255) 0%, rgb(123 97 255) 50%, rgb(255 0 255) 100%);
+  --gradient-glow: 0 0 80px rgba(0, 255, 255, 0.2);
+}
+
+@theme inline {
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+  --color-card: rgb(var(--card));
+  --color-card-foreground: rgb(var(--card-foreground));
+  --color-primary: rgb(var(--primary));
+  --color-primary-foreground: rgb(var(--primary-foreground));
+  --color-secondary: rgb(var(--secondary));
+  --color-secondary-foreground: rgb(var(--secondary-foreground));
+  --color-accent: rgb(var(--accent));
+  --color-accent-foreground: rgb(var(--accent-foreground));
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+  --color-border: rgb(var(--border));
+  --color-ring: rgb(var(--ring));
+
+  --font-sans: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-fira-code), monospace;
+}
+
+/* Base Styles */
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: rgb(var(--primary) / 0.3);
+  color: rgb(var(--foreground));
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--muted-foreground));
+}
+
+/* Glass Effect */
+.glass {
+  background: rgb(var(--card) / 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(var(--border) / 0.5);
+}
+
+.dark .glass {
+  background: rgb(var(--card) / 0.3);
+  border: 1px solid rgb(var(--primary) / 0.15);
+}
+
+/* Glow Effects */
+.glow-primary {
+  box-shadow: var(--gradient-glow);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation Utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

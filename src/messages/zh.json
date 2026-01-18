@@ -1,0 +1,210 @@
+{
+  "common": {
+    "brand": "Stone",
+    "copyright": "© {year} Stone. 保留所有权利。",
+    "builtWith": "用 {icon} 和 Next.js 构建"
+  },
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "projects": "项目",
+    "blog": "博客",
+    "notes": "笔记",
+    "skills": "技能",
+    "resume": "简历",
+    "contact": "联系"
+  },
+  "footer": {
+    "description": "AI 探索者 & 产品构建者。热衷于探索人工智能并构建实用的应用程序。",
+    "navigate": "导航",
+    "resources": "资源"
+  },
+  "hero": {
+    "badge": "AI 探索者 & 产品构建者",
+    "greeting": "你好，我是",
+    "tagline": "探索 AI，构建产品",
+    "description": "我热衷于人工智能与实际应用的结合。在这里，我分享我的学习历程、项目和见解。",
+    "viewProjects": "查看项目",
+    "exploreNotes": "浏览笔记",
+    "scrollToExplore": "向下滚动探索"
+  },
+  "about": {
+    "sectionTitle": "关于我",
+    "title": "用",
+    "titleHighlight": "AI",
+    "titleSuffix": "构建未来",
+    "description": "一位热衷于探索人工智能边界并构建有影响力产品的技术爱好者。",
+    "learnMore": "了解更多关于我",
+    "highlights": {
+      "aiEnthusiast": {
+        "title": "AI/ML 爱好者",
+        "description": "深入研究大语言模型、智能体和实用 AI 应用"
+      },
+      "fullStack": {
+        "title": "全栈开发者",
+        "description": "从想法到部署，构建完整产品"
+      },
+      "fastLearner": {
+        "title": "快速学习者",
+        "description": "不断探索新技术和新方法"
+      },
+      "teamPlayer": {
+        "title": "团队协作者",
+        "description": "合作构建有影响力的解决方案"
+      }
+    }
+  },
+  "aboutPage": {
+    "pageTitle": "关于",
+    "pageDescription": "了解更多关于 Stone - AI 探索者 & 产品构建者",
+    "sectionTitle": "关于我",
+    "greeting": "你好，我是",
+    "subtitle": "AI 探索者、产品构建者、终身学习者",
+    "location": "坐标中国",
+    "bio": {
+      "p1": "我热衷于<strong>人工智能</strong>与<strong>实际产品开发</strong>的结合。我的技术之旅从全栈开发延伸到 AI/ML 探索，始终专注于构建有价值的产品。",
+      "p2": "目前，我专注于理解和应用<strong>大语言模型 (LLMs)</strong>，构建 AI 智能体，并创造利用这些强大技术的产品。",
+      "p3": "我相信<strong>公开学习</strong>——与社区分享我的历程、见解和实验。这个网站正是这一理念的体现。"
+    },
+    "journeyTitle": "我的历程",
+    "timeline": {
+      "2024": {
+        "title": "AI 产品构建者",
+        "description": "构建 AI 驱动的产品，探索 LLM 应用"
+      },
+      "2023": {
+        "title": "深入 AI",
+        "description": "开始深入学习 AI/ML 和大语言模型"
+      },
+      "2022": {
+        "title": "技术创业者",
+        "description": "创立并扩展多个技术产品"
+      },
+      "2020": {
+        "title": "全栈开发者",
+        "description": "构建 Web 应用，掌握现代框架"
+      }
+    },
+    "interestsTitle": "我喜欢的",
+    "interests": {
+      "aiResearch": "AI 研究",
+      "productDesign": "产品设计",
+      "openSource": "开源",
+      "coffee": "咖啡"
+    }
+  },
+  "skills": {
+    "sectionTitle": "技能与专长",
+    "title": "我使用的",
+    "titleHighlight": "技术",
+    "description": "AI/ML 专业知识与全栈开发技能的融合。",
+    "viewAll": "查看所有技能与提示词",
+    "categories": {
+      "ai": "AI 与机器学习",
+      "frontend": "前端",
+      "backend": "后端",
+      "devops": "DevOps 与工具"
+    }
+  },
+  "projects": {
+    "sectionTitle": "精选项目",
+    "title": "我构建的",
+    "titleHighlight": "作品",
+    "description": "展示我在 AI 和产品开发方面兴趣的项目精选。",
+    "viewAll": "查看所有项目",
+    "items": {
+      "agentFramework": {
+        "title": "AI 智能体框架",
+        "description": "一个灵活的框架，用于构建具有工具使用能力的自主 AI 智能体。"
+      },
+      "docParser": {
+        "title": "智能文档解析器",
+        "description": "使用视觉模型和 OCR 从文档中提取结构化数据。"
+      },
+      "promptLib": {
+        "title": "提示词库",
+        "description": "为各种 AI 任务精心整理的高效提示词集合。"
+      }
+    }
+  },
+  "contact": {
+    "pageTitle": "联系",
+    "pageDescription": "与 Stone 取得联系",
+    "sectionTitle": "联系我",
+    "title": "让我们",
+    "titleHighlight": "联系",
+    "description": "有项目想法？想要合作？或者只是想打个招呼？我很期待收到你的消息！",
+    "form": {
+      "title": "发送消息",
+      "name": "姓名",
+      "namePlaceholder": "你的名字",
+      "email": "邮箱",
+      "emailPlaceholder": "your@email.com",
+      "subject": "主题",
+      "subjectPlaceholder": "关于什么？",
+      "message": "消息",
+      "messagePlaceholder": "你的消息...",
+      "submit": "发送消息"
+    },
+    "info": {
+      "title": "联系信息",
+      "location": "位置",
+      "locationValue": "中国（支持远程）",
+      "responseTime": "回复时间",
+      "responseTimeValue": "通常 24 小时内"
+    },
+    "social": {
+      "title": "在线找到我",
+      "email": {
+        "label": "邮箱",
+        "description": "适合专业咨询"
+      },
+      "twitter": {
+        "label": "Twitter",
+        "description": "快速提问和私信"
+      },
+      "github": {
+        "label": "GitHub",
+        "description": "开源协作"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "description": "职业社交"
+      }
+    }
+  },
+  "blog": {
+    "sectionTitle": "最新文章",
+    "title": "来自",
+    "titleHighlight": "博客",
+    "description": "关于 AI、技术和产品构建的思考、教程和见解。",
+    "viewAll": "查看所有文章",
+    "posts": {
+      "transformers": {
+        "title": "理解 Transformer 架构",
+        "excerpt": "深入探讨注意力机制以及 Transformer 如何革新了自然语言处理。"
+      },
+      "agents": {
+        "title": "使用 LangChain 构建 AI 智能体",
+        "excerpt": "学习如何创建能够使用工具和做出决策的自主智能体。"
+      },
+      "rag": {
+        "title": "RAG 系统：最佳实践",
+        "excerpt": "检索增强生成技术解析及实用实现技巧。"
+      }
+    },
+    "readTime": "{time} 分钟阅读"
+  },
+  "cta": {
+    "title": "让我们一起构建",
+    "titleHighlight": "精彩",
+    "description": "有项目想法？想要合作？或者只是想打个招呼？我很期待收到你的消息！",
+    "getInTouch": "联系我",
+    "viewResume": "查看简历"
+  },
+  "metadata": {
+    "title": "Stone | AI 探索者 & 产品构建者",
+    "description": "Stone 的个人网站 - 探索 AI，构建产品，分享关于技术和创新的见解。",
+    "siteName": "Stone 的空间"
+  }
+}

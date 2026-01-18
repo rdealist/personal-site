@@ -1,48 +1,53 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
-import { ArrowRight, Brain, Code2, Database, Globe, Layers, Terminal } from "lucide-react";
+import { ArrowRight, Brain, Database, Globe, Terminal } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const skillCategories = [
   {
-    title: "AI & Machine Learning",
+    key: "ai",
     icon: Brain,
-    skills: ["LLM/GPT", "LangChain", "RAG", "Fine-tuning", "Prompt Engineering", "AI Agents"],
-    color: "primary",
+    skills: [
+      "LLM/GPT",
+      "LangChain",
+      "RAG",
+      "Fine-tuning",
+      "Prompt Engineering",
+      "AI Agents",
+    ],
   },
   {
-    title: "Frontend",
+    key: "frontend",
     icon: Globe,
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    color: "secondary",
   },
   {
-    title: "Backend",
+    key: "backend",
     icon: Database,
     skills: ["Python", "Node.js", "FastAPI", "PostgreSQL", "Redis"],
-    color: "accent",
   },
   {
-    title: "DevOps & Tools",
+    key: "devops",
     icon: Terminal,
     skills: ["Docker", "Git", "Vercel", "AWS", "CI/CD"],
-    color: "primary",
   },
 ];
 
 export function SkillsPreviewSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("skills");
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) return;
@@ -59,7 +64,7 @@ export function SkillsPreviewSection() {
             trigger: sectionRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -74,7 +79,7 @@ export function SkillsPreviewSection() {
             trigger: cardsRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -87,14 +92,14 @@ export function SkillsPreviewSection() {
         {/* Section Header */}
         <div className="skills-title text-center mb-16">
           <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            Skills & Expertise
+            {t("sectionTitle")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Technologies I{" "}
-            <span className="text-gradient">Work With</span>
+            {t("title")}{" "}
+            <span className="text-gradient">{t("titleHighlight")}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A blend of AI/ML expertise and full-stack development skills.
+            {t("description")}
           </p>
         </div>
 
@@ -109,17 +114,21 @@ export function SkillsPreviewSection() {
               className={cn(
                 "skill-card p-6 rounded-2xl glass",
                 "hover:border-primary/50 transition-all duration-300",
-                "group"
+                "group",
               )}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className={cn(
-                  "w-12 h-12 rounded-xl flex items-center justify-center",
-                  "bg-primary/10 group-hover:bg-primary/20 transition-colors"
-                )}>
+                <div
+                  className={cn(
+                    "w-12 h-12 rounded-xl flex items-center justify-center",
+                    "bg-primary/10 group-hover:bg-primary/20 transition-colors",
+                  )}
+                >
                   <category.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg">{category.title}</h3>
+                <h3 className="font-semibold text-lg">
+                  {t(`categories.${category.key}`)}
+                </h3>
               </div>
 
               <div className="flex flex-wrap gap-2">
@@ -129,7 +138,7 @@ export function SkillsPreviewSection() {
                     className={cn(
                       "px-3 py-1.5 text-sm rounded-lg",
                       "bg-muted hover:bg-primary/10 transition-colors",
-                      "cursor-default"
+                      "cursor-default",
                     )}
                   >
                     {skill}
@@ -147,10 +156,10 @@ export function SkillsPreviewSection() {
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
               "glass font-medium",
-              "hover:bg-primary/10 transition-all group"
+              "hover:bg-primary/10 transition-all group",
             )}
           >
-            See all skills & prompts
+            {t("viewAll")}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

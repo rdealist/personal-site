@@ -1,25 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const languages = [
   { code: "zh", label: "中文", flag: "🇨🇳" },
   { code: "en", label: "EN", flag: "🇺🇸" },
-];
+] as const;
 
 export function LanguageToggle() {
-  const [currentLang, setCurrentLang] = useState("zh");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLanguageChange = (langCode: string) => {
-    setCurrentLang(langCode);
     setIsOpen(false);
-    // In a real app, this would update next-intl locale
-    // For now, we just update state
+    router.replace(pathname, { locale: langCode });
   };
 
-  const currentLanguage = languages.find((l) => l.code === currentLang);
+  const currentLanguage = languages.find((l) => l.code === locale);
 
   return (
     <div className="relative">
@@ -29,7 +31,7 @@ export function LanguageToggle() {
           "px-3 h-9 rounded-lg flex items-center gap-1.5",
           "bg-muted hover:bg-primary/10 transition-colors",
           "border border-border hover:border-primary/50",
-          "text-sm font-medium"
+          "text-sm font-medium",
         )}
       >
         <span>{currentLanguage?.flag}</span>
@@ -50,7 +52,7 @@ export function LanguageToggle() {
                 className={cn(
                   "w-full px-3 py-2 flex items-center gap-2 text-sm",
                   "hover:bg-primary/10 transition-colors",
-                  currentLang === lang.code && "text-primary"
+                  locale === lang.code && "text-primary",
                 )}
               >
                 <span>{lang.flag}</span>

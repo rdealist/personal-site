@@ -1,36 +1,44 @@
-import Link from "next/link";
+"use client";
+
 import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 const socialLinks = [
   { href: "https://github.com/your-username", icon: Github, label: "GitHub" },
-  { href: "https://twitter.com/your-username", icon: Twitter, label: "Twitter" },
-  { href: "https://linkedin.com/in/your-username", icon: Linkedin, label: "LinkedIn" },
+  {
+    href: "https://twitter.com/your-username",
+    icon: Twitter,
+    label: "Twitter",
+  },
+  {
+    href: "https://linkedin.com/in/your-username",
+    icon: Linkedin,
+    label: "LinkedIn",
+  },
   { href: "mailto:your@email.com", icon: Mail, label: "Email" },
 ];
 
-const footerLinks = [
-  {
-    title: "Navigate",
-    links: [
-      { href: "/", label: "Home" },
-      { href: "/about", label: "About" },
-      { href: "/projects", label: "Projects" },
-      { href: "/blog", label: "Blog" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { href: "/notes", label: "Notes" },
-      { href: "/skills", label: "Skills" },
-      { href: "/resume", label: "Resume" },
-      { href: "/contact", label: "Contact" },
-    ],
-  },
-];
+const navLinkKeys = [
+  { href: "/", key: "home" },
+  { href: "/about", key: "about" },
+  { href: "/projects", key: "projects" },
+  { href: "/blog", key: "blog" },
+] as const;
+
+const resourceLinkKeys = [
+  { href: "/notes", key: "notes" },
+  { href: "/skills", key: "skills" },
+  { href: "/resume", key: "resume" },
+  { href: "/contact", key: "contact" },
+] as const;
 
 export function Footer() {
+  const t = useTranslations("nav");
+  const tFooter = useTranslations("footer");
+  const tCommon = useTranslations("common");
+
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="container mx-auto px-4 py-12">
@@ -41,7 +49,7 @@ export function Footer() {
               Stone
             </Link>
             <p className="mt-4 text-muted-foreground max-w-md">
-              AI Explorer & Product Builder. Passionate about exploring artificial intelligence and building practical applications.
+              {tFooter("description")}
             </p>
 
             {/* Social Links */}
@@ -56,7 +64,7 @@ export function Footer() {
                     "w-10 h-10 rounded-lg flex items-center justify-center",
                     "bg-muted hover:bg-primary/10 transition-colors",
                     "border border-border hover:border-primary/50",
-                    "text-muted-foreground hover:text-primary"
+                    "text-muted-foreground hover:text-primary",
                   )}
                   aria-label={social.label}
                 >
@@ -66,29 +74,44 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links */}
-          {footerLinks.map((group) => (
-            <div key={group.title}>
-              <h3 className="font-semibold mb-4">{group.title}</h3>
-              <ul className="space-y-2">
-                {group.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Navigate Links */}
+          <div>
+            <h3 className="font-semibold mb-4">{tFooter("navigate")}</h3>
+            <ul className="space-y-2">
+              {navLinkKeys.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {t(link.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resource Links */}
+          <div>
+            <h3 className="font-semibold mb-4">{tFooter("resources")}</h3>
+            <ul className="space-y-2">
+              {resourceLinkKeys.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {t(link.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Stone. All rights reserved.</p>
+          <p>{tCommon("copyright", { year: new Date().getFullYear() })}</p>
           <p className="flex items-center gap-1">
             Built with <Heart className="w-4 h-4 text-accent" /> using Next.js
           </p>

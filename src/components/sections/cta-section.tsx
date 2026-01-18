@@ -1,20 +1,22 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { ArrowRight, Mail, MessageSquare, Rocket } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function CTASection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const t = useTranslations("cta");
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) return;
@@ -31,7 +33,7 @@ export function CTASection() {
             trigger: sectionRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -55,13 +57,12 @@ export function CTASection() {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let's Build Something{" "}
-              <span className="text-gradient">Amazing</span>
+              {t("title")}{" "}
+              <span className="text-gradient">{t("titleHighlight")}</span>
             </h2>
 
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Have a project in mind? Want to collaborate? Or just want to say hi?
-              I'd love to hear from you!
+              {t("description")}
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -71,11 +72,11 @@ export function CTASection() {
                   "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
                   "bg-primary text-primary-foreground font-medium",
                   "hover:opacity-90 transition-all hover:scale-105",
-                  "glow-primary"
+                  "glow-primary",
                 )}
               >
                 <Mail className="w-5 h-5" />
-                Get in Touch
+                {t("getInTouch")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
@@ -84,11 +85,11 @@ export function CTASection() {
                 className={cn(
                   "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
                   "glass font-medium",
-                  "hover:bg-primary/10 transition-all"
+                  "hover:bg-primary/10 transition-all",
                 )}
               >
                 <MessageSquare className="w-5 h-5" />
-                View Resume
+                {t("viewResume")}
               </Link>
             </div>
           </div>

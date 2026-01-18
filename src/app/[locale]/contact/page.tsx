@@ -1,5 +1,5 @@
-import { Metadata } from "next";
-import Link from "next/link";
+"use client";
+
 import {
   Mail,
   MessageSquare,
@@ -10,60 +10,52 @@ import {
   MapPin,
   Clock,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Stone",
-};
 
 const contactMethods = [
   {
     icon: Mail,
-    label: "Email",
+    key: "email",
     value: "your@email.com",
     href: "mailto:your@email.com",
-    description: "Best for professional inquiries",
   },
   {
     icon: Twitter,
-    label: "Twitter",
+    key: "twitter",
     value: "@your-username",
     href: "https://twitter.com/your-username",
-    description: "Quick questions and DMs",
   },
   {
     icon: Github,
-    label: "GitHub",
+    key: "github",
     value: "your-username",
     href: "https://github.com/your-username",
-    description: "Open source collaboration",
   },
   {
     icon: Linkedin,
-    label: "LinkedIn",
+    key: "linkedin",
     value: "your-username",
     href: "https://linkedin.com/in/your-username",
-    description: "Professional networking",
   },
 ];
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
+
   return (
     <div className="pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            Get in Touch
+            {t("sectionTitle")}
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Let's <span className="text-gradient">Connect</span>
+            {t("title")}{" "}
+            <span className="text-gradient">{t("titleHighlight")}</span>
           </h1>
-          <p className="text-lg text-muted-foreground">
-            Have a project in mind? Want to collaborate? Or just want to say hi?
-            I'd love to hear from you!
-          </p>
+          <p className="text-lg text-muted-foreground">{t("description")}</p>
         </div>
 
         <div className="max-w-5xl mx-auto">
@@ -72,7 +64,7 @@ export default function ContactPage() {
             <div className="glass rounded-3xl p-8">
               <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-primary" />
-                Send a Message
+                {t("form.title")}
               </h2>
 
               <form className="space-y-6">
@@ -81,17 +73,17 @@ export default function ContactPage() {
                     htmlFor="name"
                     className="block text-sm font-medium mb-2"
                   >
-                    Name
+                    {t("form.name")}
                   </label>
                   <input
                     type="text"
                     id="name"
-                    placeholder="Your name"
+                    placeholder={t("form.namePlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl",
                       "bg-muted border border-border",
                       "focus:outline-none focus:ring-2 focus:ring-primary/50",
-                      "placeholder:text-muted-foreground"
+                      "placeholder:text-muted-foreground",
                     )}
                   />
                 </div>
@@ -101,17 +93,17 @@ export default function ContactPage() {
                     htmlFor="email"
                     className="block text-sm font-medium mb-2"
                   >
-                    Email
+                    {t("form.email")}
                   </label>
                   <input
                     type="email"
                     id="email"
-                    placeholder="your@email.com"
+                    placeholder={t("form.emailPlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl",
                       "bg-muted border border-border",
                       "focus:outline-none focus:ring-2 focus:ring-primary/50",
-                      "placeholder:text-muted-foreground"
+                      "placeholder:text-muted-foreground",
                     )}
                   />
                 </div>
@@ -121,17 +113,17 @@ export default function ContactPage() {
                     htmlFor="subject"
                     className="block text-sm font-medium mb-2"
                   >
-                    Subject
+                    {t("form.subject")}
                   </label>
                   <input
                     type="text"
                     id="subject"
-                    placeholder="What's this about?"
+                    placeholder={t("form.subjectPlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl",
                       "bg-muted border border-border",
                       "focus:outline-none focus:ring-2 focus:ring-primary/50",
-                      "placeholder:text-muted-foreground"
+                      "placeholder:text-muted-foreground",
                     )}
                   />
                 </div>
@@ -141,17 +133,17 @@ export default function ContactPage() {
                     htmlFor="message"
                     className="block text-sm font-medium mb-2"
                   >
-                    Message
+                    {t("form.message")}
                   </label>
                   <textarea
                     id="message"
                     rows={5}
-                    placeholder="Your message..."
+                    placeholder={t("form.messagePlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl resize-none",
                       "bg-muted border border-border",
                       "focus:outline-none focus:ring-2 focus:ring-primary/50",
-                      "placeholder:text-muted-foreground"
+                      "placeholder:text-muted-foreground",
                     )}
                   />
                 </div>
@@ -162,11 +154,11 @@ export default function ContactPage() {
                     "w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl",
                     "bg-primary text-primary-foreground font-medium",
                     "hover:opacity-90 transition-all hover:scale-[1.02]",
-                    "glow-primary"
+                    "glow-primary",
                   )}
                 >
                   <Send className="w-5 h-5" />
-                  Send Message
+                  {t("form.submit")}
                 </button>
               </form>
             </div>
@@ -175,7 +167,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               {/* Info */}
               <div className="glass rounded-3xl p-8">
-                <h2 className="text-xl font-bold mb-6">Contact Info</h2>
+                <h2 className="text-xl font-bold mb-6">{t("info.title")}</h2>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -183,9 +175,9 @@ export default function ContactPage() {
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium">Location</p>
+                      <p className="font-medium">{t("info.location")}</p>
                       <p className="text-sm text-muted-foreground">
-                        China (Remote-friendly)
+                        {t("info.locationValue")}
                       </p>
                     </div>
                   </div>
@@ -195,9 +187,9 @@ export default function ContactPage() {
                       <Clock className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium">Response Time</p>
+                      <p className="font-medium">{t("info.responseTime")}</p>
                       <p className="text-sm text-muted-foreground">
-                        Usually within 24 hours
+                        {t("info.responseTimeValue")}
                       </p>
                     </div>
                   </div>
@@ -206,7 +198,7 @@ export default function ContactPage() {
 
               {/* Social Links */}
               <div className="glass rounded-3xl p-8">
-                <h2 className="text-xl font-bold mb-6">Find Me Online</h2>
+                <h2 className="text-xl font-bold mb-6">{t("social.title")}</h2>
 
                 <div className="space-y-4">
                   {contactMethods.map((method, index) => (
@@ -218,7 +210,7 @@ export default function ContactPage() {
                       className={cn(
                         "flex items-center gap-4 p-4 rounded-xl",
                         "bg-muted/50 hover:bg-primary/10 transition-colors",
-                        "group"
+                        "group",
                       )}
                     >
                       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -226,10 +218,10 @@ export default function ContactPage() {
                       </div>
                       <div className="flex-1">
                         <p className="font-medium group-hover:text-primary transition-colors">
-                          {method.label}
+                          {t(`social.${method.key}.label`)}
                         </p>
                         <p className="text-sm text-muted-foreground">
-                          {method.description}
+                          {t(`social.${method.key}.description`)}
                         </p>
                       </div>
                     </a>

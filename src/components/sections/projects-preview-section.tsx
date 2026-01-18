@@ -1,49 +1,45 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { ArrowRight, ExternalLink, Github, Star } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const featuredProjects = [
   {
-    title: "AI Agent Framework",
-    description: "A flexible framework for building autonomous AI agents with tool use capabilities.",
+    key: "agentFramework",
     tags: ["Python", "LangChain", "OpenAI"],
     image: "/projects/agent-framework.png",
     github: "https://github.com/your-username/agent-framework",
     demo: "https://demo.example.com",
-    featured: true,
   },
   {
-    title: "Smart Document Parser",
-    description: "Extract structured data from documents using vision models and OCR.",
+    key: "docParser",
     tags: ["TypeScript", "Next.js", "Claude"],
     image: "/projects/doc-parser.png",
     github: "https://github.com/your-username/doc-parser",
-    featured: true,
   },
   {
-    title: "Prompt Library",
-    description: "A curated collection of effective prompts for various AI tasks.",
+    key: "promptLib",
     tags: ["React", "MDX", "Tailwind"],
     image: "/projects/prompt-lib.png",
     demo: "https://prompts.example.com",
-    featured: true,
   },
 ];
 
 export function ProjectsPreviewSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("projects");
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) return;
@@ -60,7 +56,7 @@ export function ProjectsPreviewSection() {
             trigger: sectionRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -76,7 +72,7 @@ export function ProjectsPreviewSection() {
             trigger: cardsRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -89,14 +85,14 @@ export function ProjectsPreviewSection() {
         {/* Section Header */}
         <div className="projects-title text-center mb-16">
           <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            Featured Projects
+            {t("sectionTitle")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Things I've{" "}
-            <span className="text-gradient">Built</span>
+            {t("title")}{" "}
+            <span className="text-gradient">{t("titleHighlight")}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A selection of projects that showcase my interests in AI and product development.
+            {t("description")}
           </p>
         </div>
 
@@ -111,7 +107,7 @@ export function ProjectsPreviewSection() {
               className={cn(
                 "project-card group rounded-2xl glass overflow-hidden",
                 "hover:border-primary/50 transition-all duration-300",
-                "hover:scale-[1.02] hover:shadow-xl"
+                "hover:scale-[1.02] hover:shadow-xl",
               )}
             >
               {/* Image Placeholder */}
@@ -124,10 +120,10 @@ export function ProjectsPreviewSection() {
               {/* Content */}
               <div className="p-6">
                 <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
+                  {t(`items.${project.key}.title`)}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {project.description}
+                  {t(`items.${project.key}.description`)}
                 </p>
 
                 {/* Tags */}
@@ -177,10 +173,10 @@ export function ProjectsPreviewSection() {
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
               "glass font-medium",
-              "hover:bg-primary/10 transition-all group"
+              "hover:bg-primary/10 transition-all group",
             )}
           >
-            View all projects
+            {t("viewAll")}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

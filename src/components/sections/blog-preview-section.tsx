@@ -1,36 +1,34 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const recentPosts = [
   {
-    title: "Understanding Transformer Architecture",
-    excerpt: "A deep dive into the attention mechanism and how transformers revolutionized NLP.",
+    key: "transformers",
     date: "2025-01-15",
-    readTime: "8 min read",
+    readTime: 8,
     tags: ["AI", "Deep Learning"],
     slug: "understanding-transformers",
   },
   {
-    title: "Building AI Agents with LangChain",
-    excerpt: "Learn how to create autonomous agents that can use tools and make decisions.",
+    key: "agents",
     date: "2025-01-10",
-    readTime: "12 min read",
+    readTime: 12,
     tags: ["LangChain", "Agents"],
     slug: "ai-agents-langchain",
   },
   {
-    title: "RAG Systems: Best Practices",
-    excerpt: "Retrieval-Augmented Generation explained with practical implementation tips.",
+    key: "rag",
     date: "2025-01-05",
-    readTime: "10 min read",
+    readTime: 10,
     tags: ["RAG", "LLM"],
     slug: "rag-best-practices",
   },
@@ -39,10 +37,12 @@ const recentPosts = [
 export function BlogPreviewSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("blog");
+  const locale = useLocale();
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) return;
@@ -59,7 +59,7 @@ export function BlogPreviewSection() {
             trigger: sectionRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -74,7 +74,7 @@ export function BlogPreviewSection() {
             trigger: cardsRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -87,14 +87,14 @@ export function BlogPreviewSection() {
         {/* Section Header */}
         <div className="blog-title text-center mb-16">
           <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            Latest Posts
+            {t("sectionTitle")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            From the{" "}
-            <span className="text-gradient">Blog</span>
+            {t("title")}{" "}
+            <span className="text-gradient">{t("titleHighlight")}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Thoughts, tutorials, and insights on AI, technology, and product building.
+            {t("description")}
           </p>
         </div>
 
@@ -110,33 +110,36 @@ export function BlogPreviewSection() {
               className={cn(
                 "blog-card group p-6 rounded-2xl glass",
                 "hover:border-primary/50 transition-all duration-300",
-                "hover:scale-[1.02]"
+                "hover:scale-[1.02]",
               )}
             >
               {/* Meta */}
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                 <span className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
+                  {new Date(post.date).toLocaleDateString(
+                    locale === "zh" ? "zh-CN" : "en-US",
+                    {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    },
+                  )}
                 </span>
                 <span className="flex items-center gap-1">
                   <Clock className="w-4 h-4" />
-                  {post.readTime}
+                  {t("readTime", { time: post.readTime })}
                 </span>
               </div>
 
               {/* Title */}
               <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                {post.title}
+                {t(`posts.${post.key}.title`)}
               </h3>
 
               {/* Excerpt */}
               <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                {post.excerpt}
+                {t(`posts.${post.key}.excerpt`)}
               </p>
 
               {/* Tags */}
@@ -162,10 +165,10 @@ export function BlogPreviewSection() {
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
               "glass font-medium",
-              "hover:bg-primary/10 transition-all group"
+              "hover:bg-primary/10 transition-all group",
             )}
           >
-            View all posts
+            {t("viewAll")}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

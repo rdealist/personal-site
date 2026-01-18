@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Fira_Code } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -22,7 +19,14 @@ export const metadata: Metadata = {
   },
   description:
     "Personal website of Stone - exploring AI, building products, and sharing insights on technology and innovation.",
-  keywords: ["AI", "Machine Learning", "Product", "Developer", "LLM", "Technology"],
+  keywords: [
+    "AI",
+    "Machine Learning",
+    "Product",
+    "Developer",
+    "LLM",
+    "Technology",
+  ],
   authors: [{ name: "Stone" }],
   openGraph: {
     type: "website",
@@ -50,22 +54,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="zh" suppressHydrationWarning>
-      <body
-        className={`${spaceGrotesk.variable} ${firaCode.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+  return children;
 }

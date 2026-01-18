@@ -1,0 +1,209 @@
+{
+  "common": {
+    "brand": "Stone",
+    "copyright": "© {year} Stone. All rights reserved.",
+    "builtWith": "Built with {icon} using Next.js"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "notes": "Notes",
+    "skills": "Skills",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "footer": {
+    "description": "AI Explorer & Product Builder. Passionate about exploring artificial intelligence and building practical applications.",
+    "navigate": "Navigate",
+    "resources": "Resources"
+  },
+  "hero": {
+    "badge": "AI Explorer & Product Builder",
+    "greeting": "Hi, I'm",
+    "tagline": "Exploring AI, Building Products",
+    "description": "I'm passionate about the intersection of artificial intelligence and practical applications. Here I share my learning journey, projects, and insights.",
+    "viewProjects": "View Projects",
+    "exploreNotes": "Explore Notes",
+    "scrollToExplore": "Scroll to explore"
+  },
+  "about": {
+    "sectionTitle": "About Me",
+    "title": "Crafting the Future with",
+    "titleHighlight": "AI",
+    "description": "A passionate technologist exploring the boundaries of artificial intelligence and building products that make a difference.",
+    "learnMore": "Learn more about me",
+    "highlights": {
+      "aiEnthusiast": {
+        "title": "AI/ML Enthusiast",
+        "description": "Deep diving into LLMs, agents, and practical AI applications"
+      },
+      "fullStack": {
+        "title": "Full-Stack Developer",
+        "description": "Building products from idea to deployment"
+      },
+      "fastLearner": {
+        "title": "Fast Learner",
+        "description": "Always exploring new technologies and methodologies"
+      },
+      "teamPlayer": {
+        "title": "Team Player",
+        "description": "Collaborating to build impactful solutions"
+      }
+    }
+  },
+  "aboutPage": {
+    "pageTitle": "About",
+    "pageDescription": "Learn more about Stone - AI Explorer & Product Builder",
+    "sectionTitle": "About Me",
+    "greeting": "Hi, I'm",
+    "subtitle": "AI Explorer, Product Builder, and Lifelong Learner",
+    "location": "Based in China",
+    "bio": {
+      "p1": "I'm passionate about the intersection of <strong>artificial intelligence</strong> and <strong>practical product development</strong>. My journey in tech has taken me from full-stack development to AI/ML exploration, always with a focus on building things that matter.",
+      "p2": "Currently, I'm focused on understanding and applying <strong>Large Language Models (LLMs)</strong>, building AI agents, and creating products that leverage these powerful technologies.",
+      "p3": "I believe in <strong>learning in public</strong> - sharing my journey, insights, and experiments with the community. This site is a reflection of that philosophy."
+    },
+    "journeyTitle": "My Journey",
+    "timeline": {
+      "2024": {
+        "title": "AI Product Builder",
+        "description": "Building AI-powered products and exploring LLM applications"
+      },
+      "2023": {
+        "title": "Deep Dive into AI",
+        "description": "Started intensive learning journey in AI/ML and LLMs"
+      },
+      "2022": {
+        "title": "Tech Entrepreneur",
+        "description": "Founded and scaled multiple tech products"
+      },
+      "2020": {
+        "title": "Full-Stack Developer",
+        "description": "Building web applications and mastering modern frameworks"
+      }
+    },
+    "interestsTitle": "Things I",
+    "interests": {
+      "aiResearch": "AI Research",
+      "productDesign": "Product Design",
+      "openSource": "Open Source",
+      "coffee": "Coffee"
+    }
+  },
+  "skills": {
+    "sectionTitle": "Skills & Expertise",
+    "title": "Technologies I",
+    "titleHighlight": "Work With",
+    "description": "A blend of AI/ML expertise and full-stack development skills.",
+    "viewAll": "See all skills & prompts",
+    "categories": {
+      "ai": "AI & Machine Learning",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Tools"
+    }
+  },
+  "projects": {
+    "sectionTitle": "Featured Projects",
+    "title": "Things I've",
+    "titleHighlight": "Built",
+    "description": "A selection of projects that showcase my interests in AI and product development.",
+    "viewAll": "View all projects",
+    "items": {
+      "agentFramework": {
+        "title": "AI Agent Framework",
+        "description": "A flexible framework for building autonomous AI agents with tool use capabilities."
+      },
+      "docParser": {
+        "title": "Smart Document Parser",
+        "description": "Extract structured data from documents using vision models and OCR."
+      },
+      "promptLib": {
+        "title": "Prompt Library",
+        "description": "A curated collection of effective prompts for various AI tasks."
+      }
+    }
+  },
+  "contact": {
+    "pageTitle": "Contact",
+    "pageDescription": "Get in touch with Stone",
+    "sectionTitle": "Get in Touch",
+    "title": "Let's",
+    "titleHighlight": "Connect",
+    "description": "Have a project in mind? Want to collaborate? Or just want to say hi? I'd love to hear from you!",
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's this about?",
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "submit": "Send Message"
+    },
+    "info": {
+      "title": "Contact Info",
+      "location": "Location",
+      "locationValue": "China (Remote-friendly)",
+      "responseTime": "Response Time",
+      "responseTimeValue": "Usually within 24 hours"
+    },
+    "social": {
+      "title": "Find Me Online",
+      "email": {
+        "label": "Email",
+        "description": "Best for professional inquiries"
+      },
+      "twitter": {
+        "label": "Twitter",
+        "description": "Quick questions and DMs"
+      },
+      "github": {
+        "label": "GitHub",
+        "description": "Open source collaboration"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "description": "Professional networking"
+      }
+    }
+  },
+  "blog": {
+    "sectionTitle": "Latest Posts",
+    "title": "From the",
+    "titleHighlight": "Blog",
+    "description": "Thoughts, tutorials, and insights on AI, technology, and product building.",
+    "viewAll": "View all posts",
+    "posts": {
+      "transformers": {
+        "title": "Understanding Transformer Architecture",
+        "excerpt": "A deep dive into the attention mechanism and how transformers revolutionized NLP."
+      },
+      "agents": {
+        "title": "Building AI Agents with LangChain",
+        "excerpt": "Learn how to create autonomous agents that can use tools and make decisions."
+      },
+      "rag": {
+        "title": "RAG Systems: Best Practices",
+        "excerpt": "Retrieval-Augmented Generation explained with practical implementation tips."
+      }
+    },
+    "readTime": "{time} min read"
+  },
+  "cta": {
+    "title": "Let's Build Something",
+    "titleHighlight": "Amazing",
+    "description": "Have a project in mind? Want to collaborate? Or just want to say hi? I'd love to hear from you!",
+    "getInTouch": "Get in Touch",
+    "viewResume": "View Resume"
+  },
+  "metadata": {
+    "title": "Stone | AI Explorer & Product Builder",
+    "description": "Personal website of Stone - exploring AI, building products, and sharing insights on technology and innovation.",
+    "siteName": "Stone's Space"
+  }
+}

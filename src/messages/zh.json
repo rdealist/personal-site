@@ -287,5 +287,228 @@
     "twitter": "Twitter",
     "linkedin": "LinkedIn",
     "email": "邮箱"
+  },
+  "skillsPage": {
+    "pageTitle": "技能与提示词",
+    "pageDescription": "技术技能与提示词模板",
+    "badge": "能力",
+    "title": "技能与",
+    "titleHighlight": "提示词",
+    "description": "我开发的技术技能和经常使用的提示词模板。",
+    "technicalSkills": "技术技能",
+    "promptTemplates": "提示词模板",
+    "categories": {
+      "ai": "AI 与机器学习",
+      "frontend": "前端开发",
+      "backend": "后端开发",
+      "devops": "DevOps 与工具"
+    },
+    "skills": {
+      "llms": "大语言模型",
+      "promptEng": "提示工程",
+      "rag": "RAG 系统",
+      "agents": "AI 智能体",
+      "finetuning": "微调",
+      "langchain": "LangChain",
+      "react": "React/Next.js",
+      "typescript": "TypeScript",
+      "tailwind": "Tailwind CSS",
+      "html": "HTML/CSS",
+      "framer": "Framer Motion",
+      "python": "Python",
+      "nodejs": "Node.js",
+      "fastapi": "FastAPI",
+      "postgresql": "PostgreSQL",
+      "redis": "Redis",
+      "git": "Git",
+      "docker": "Docker",
+      "vercel": "Vercel",
+      "aws": "AWS",
+      "cicd": "CI/CD"
+    },
+    "prompts": {
+      "codeReviewer": {
+        "title": "代码审查专家",
+        "category": "开发",
+        "description": "用最佳实践审查代码的提示词",
+        "content": "你是一位专家级代码审查员。请从以下方面审查代码：\n1. 错误和潜在问题\n2. 性能优化\n3. 安全漏洞\n4. 代码风格和可读性\n5. 最佳实践\n\n请提供具体、可操作的建议和示例。"
+      },
+      "technicalWriter": {
+        "title": "技术写作助手",
+        "category": "文档",
+        "description": "生成清晰的技术文档",
+        "content": "你是一位技术写作专家。请为以下内容创建文档：\n- 从清晰的概述开始\n- 包含使用示例\n- 记录所有参数/选项\n- 添加故障排除提示\n- 使用清晰简洁的语言"
+      },
+      "aiTutor": {
+        "title": "AI 导师",
+        "category": "教育",
+        "description": "用简单的术语解释复杂概念",
+        "content": "你是一位耐心且知识渊博的导师。请像教初学者一样解释这个概念：\n1. 从简单的类比开始\n2. 逐步深入技术细节\n3. 提供实际示例\n4. 通过问题检查理解程度"
+      }
+    }
+  },
+  "blogPage": {
+    "pageTitle": "博客",
+    "pageDescription": "关于 AI 和技术的思考、教程与见解",
+    "badge": "博客",
+    "title": "思考与",
+    "titleHighlight": "见解",
+    "description": "关于 AI、技术和构建之旅的写作。",
+    "searchPlaceholder": "搜索文章（例如：RAG）…",
+    "featured": "精选",
+    "recentPosts": "最近文章",
+    "readTime": "{time} 分钟阅读",
+    "posts": {
+      "transformers": {
+        "title": "理解 Transformer 架构",
+        "excerpt": "深入探讨注意力机制以及 Transformer 如何革新了自然语言处理等领域。",
+        "tags": ["AI", "深度学习", "Transformers"]
+      },
+      "agents": {
+        "title": "使用 LangChain 构建 AI 智能体",
+        "excerpt": "学习如何创建能够使用工具、做出决策并解决复杂问题的自主智能体。",
+        "tags": ["LangChain", "AI 智能体", "Python"]
+      },
+      "rag": {
+        "title": "RAG 系统：最佳实践",
+        "excerpt": "检索增强生成技术解析、实用实现技巧及常见陷阱规避。",
+        "tags": ["RAG", "LLM", "向量搜索"]
+      },
+      "promptEng": {
+        "title": "提示工程技巧",
+        "excerpt": "掌握设计有效提示词的艺术，获得更好的 AI 输出。",
+        "tags": ["提示工程", "LLM"]
+      },
+      "finetuningRag": {
+        "title": "微调 vs RAG：何时使用什么",
+        "excerpt": "比较两种定制 LLM 行为的热门方法，选择适合你用例的方案。",
+        "tags": ["微调", "RAG", "LLM"]
+      },
+      "website": {
+        "title": "构建现代个人网站",
+        "excerpt": "我如何使用 Next.js、Tailwind CSS 和一点 AI 风格构建这个网站。",
+        "tags": ["Next.js", "Tailwind", "Web 开发"]
+      }
+    }
+  },
+  "projectsPage": {
+    "pageTitle": "项目",
+    "pageDescription": "Stone 的项目和实验",
+    "badge": "我的作品",
+    "title": "项目与",
+    "titleHighlight": "实验",
+    "description": "我构建、探索和实验过的作品集合。",
+    "featuredProjects": "精选项目",
+    "otherProjects": "其他项目",
+    "status": {
+      "active": "活跃",
+      "beta": "测试版",
+      "archived": "已归档"
+    },
+    "code": "代码",
+    "demo": "演示",
+    "projects": {
+      "agentFramework": {
+        "title": "AI 智能体框架",
+        "description": "一个用于构建具有工具使用能力的自主 AI 智能体的灵活框架。支持多个 LLM 提供商和自定义工具定义。",
+        "tags": ["Python", "LangChain", "OpenAI", "Claude"]
+      },
+      "docParser": {
+        "title": "智能文档解析器",
+        "description": "使用视觉模型和 OCR 从文档中提取结构化数据。支持 PDF、图像和扫描文档。",
+        "tags": ["TypeScript", "Next.js", "Claude Vision", "Tesseract"]
+      },
+      "promptLib": {
+        "title": "提示词库",
+        "description": "为各种 AI 任务精心整理的高效提示词集合。包含分类、搜索和版本控制功能。",
+        "tags": ["React", "MDX", "Tailwind", "Vercel"]
+      },
+      "ragPipeline": {
+        "title": "RAG 管道",
+        "description": "生产级 RAG 系统，支持混合搜索、重排序和引用。",
+        "tags": ["Python", "FastAPI", "Pinecone", "LlamaIndex"]
+      },
+      "chatWidget": {
+        "title": "AI 聊天组件",
+        "description": "由 LLM 驱动的可嵌入聊天组件。轻松集成到任何网站。",
+        "tags": ["TypeScript", "Web Components", "OpenAI"]
+      },
+      "benchmark": {
+        "title": "模型基准测试工具",
+        "description": "在自定义数据集上比较和评估不同 LLM 模型，提供详细指标。",
+        "tags": ["Python", "Streamlit", "Pandas"]
+      }
+    }
+  },
+  "resumePage": {
+    "pageTitle": "简历",
+    "pageDescription": "专业简历与经验",
+    "title": "AI 探索者 & 产品构建者",
+    "subtitle": "坐标中国",
+    "email": "your@email.com",
+    "download": "下载 PDF",
+    "experience": "工作经验",
+    "skills": "技能",
+    "education": "教育背景",
+    "certifications": "认证",
+    "roles": {
+      "aiBuilder": {
+        "title": "AI 产品构建者",
+        "company": "独立",
+        "period": "2024 - 至今",
+        "location": "远程",
+        "description": [
+          "构建 AI 驱动的产品和应用程序",
+          "探索 LLM 能力并开发 AI 智能体",
+          "为开发者和企业创建工具"
+        ]
+      },
+      "entrepreneur": {
+        "title": "技术创业者",
+        "company": "创业公司",
+        "period": "2022 - 2024",
+        "location": "中国",
+        "description": [
+          "创立并扩展多个技术产品",
+          "领导产品开发和技术战略",
+          "管理跨职能团队"
+        ]
+      },
+      "developer": {
+        "title": "全栈开发者",
+        "company": "科技公司",
+        "period": "2020 - 2022",
+        "location": "中国",
+        "description": [
+          "使用 React 和 Node.js 开发 Web 应用",
+          "实施 CI/CD 流程和 DevOps 实践",
+          "与设计和产品团队协作"
+        ]
+      }
+    },
+    "education": {
+      "degree": "学士学位",
+      "school": "大学",
+      "period": "2016 - 2020",
+      "field": "计算机科学"
+    },
+    "certifications": {
+      "aws": {
+        "name": "AWS 认证解决方案架构师",
+        "issuer": "Amazon Web Services",
+        "date": "2023"
+      },
+      "gcp": {
+        "name": "Google 云认证专业级",
+        "issuer": "Google",
+        "date": "2022"
+      }
+    },
+    "skillCategories": {
+      "aiml": "AI/ML",
+      "frontend": "前端",
+      "backend": "后端",
+      "devops": "DevOps"
+    }
   }
 }

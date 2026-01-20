@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Fira_Code } from "next/font/google";
 import "./globals.css";
 
@@ -51,15 +51,18 @@ export const metadata: Metadata = {
     description:
       "Personal website of Stone - exploring AI, building products, and sharing insights.",
   },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FF4D94" },
-    { media: "(prefers-color-scheme: dark)", color: "#2567F2" },
-  ],
   robots: {
     index: true,
     follow: true,
   },
   manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FF4D94" },
+    { media: "(prefers-color-scheme: dark)", color: "#2567F2" },
+  ],
 };
 
 export default function RootLayout({

@@ -287,5 +287,228 @@
     "twitter": "Twitter",
     "linkedin": "LinkedIn",
     "email": "Email"
+  },
+  "skillsPage": {
+    "pageTitle": "Skills & Prompts",
+    "pageDescription": "Technical skills and prompt templates",
+    "badge": "Capabilities",
+    "title": "Skills &",
+    "titleHighlight": "Prompts",
+    "description": "Technical skills I've developed and prompt templates I use regularly.",
+    "technicalSkills": "Technical Skills",
+    "promptTemplates": "Prompt Templates",
+    "categories": {
+      "ai": "AI & Machine Learning",
+      "frontend": "Frontend Development",
+      "backend": "Backend Development",
+      "devops": "DevOps & Tools"
+    },
+    "skills": {
+      "llms": "Large Language Models",
+      "promptEng": "Prompt Engineering",
+      "rag": "RAG Systems",
+      "agents": "AI Agents",
+      "finetuning": "Fine-tuning",
+      "langchain": "LangChain",
+      "react": "React/Next.js",
+      "typescript": "TypeScript",
+      "tailwind": "Tailwind CSS",
+      "html": "HTML/CSS",
+      "framer": "Framer Motion",
+      "python": "Python",
+      "nodejs": "Node.js",
+      "fastapi": "FastAPI",
+      "postgresql": "PostgreSQL",
+      "redis": "Redis",
+      "git": "Git",
+      "docker": "Docker",
+      "vercel": "Vercel",
+      "aws": "AWS",
+      "cicd": "CI/CD"
+    },
+    "prompts": {
+      "codeReviewer": {
+        "title": "Code Reviewer",
+        "category": "Development",
+        "description": "A prompt for reviewing code with best practices in mind",
+        "content": "You are an expert code reviewer. Review the following code for:\n1. Bugs and potential issues\n2. Performance optimizations\n3. Security vulnerabilities\n4. Code style and readability\n5. Best practices\n\nProvide specific, actionable feedback with examples."
+      },
+      "technicalWriter": {
+        "title": "Technical Writer",
+        "category": "Documentation",
+        "description": "Generate clear technical documentation",
+        "content": "You are a technical writer. Create documentation for the following:\n- Start with a clear overview\n- Include usage examples\n- Document all parameters/options\n- Add troubleshooting tips\n- Use clear, concise language"
+      },
+      "aiTutor": {
+        "title": "AI Tutor",
+        "category": "Education",
+        "description": "Explain complex concepts in simple terms",
+        "content": "You are a patient and knowledgeable tutor. Explain the concept as if teaching someone new to the field:\n1. Start with a simple analogy\n2. Build up to the technical details\n3. Provide practical examples\n4. Check for understanding with questions"
+      }
+    }
+  },
+  "blogPage": {
+    "pageTitle": "Blog",
+    "pageDescription": "Thoughts, tutorials, and insights on AI and technology",
+    "badge": "Blog",
+    "title": "Thoughts &",
+    "titleHighlight": "Insights",
+    "description": "Writing about AI, technology, and the journey of building things.",
+    "searchPlaceholder": "Search posts (e.g., RAG)\u2026",
+    "featured": "Featured",
+    "recentPosts": "Recent Posts",
+    "readTime": "{time} min read",
+    "posts": {
+      "transformers": {
+        "title": "Understanding Transformer Architecture",
+        "excerpt": "A deep dive into the attention mechanism and how transformers revolutionized NLP and beyond.",
+        "tags": ["AI", "Deep Learning", "Transformers"]
+      },
+      "agents": {
+        "title": "Building AI Agents with LangChain",
+        "excerpt": "Learn how to create autonomous agents that can use tools, make decisions, and solve complex problems.",
+        "tags": ["LangChain", "AI Agents", "Python"]
+      },
+      "rag": {
+        "title": "RAG Systems: Best Practices",
+        "excerpt": "Retrieval-Augmented Generation explained with practical implementation tips and common pitfalls to avoid.",
+        "tags": ["RAG", "LLM", "Vector Search"]
+      },
+      "promptEng": {
+        "title": "Prompt Engineering Techniques",
+        "excerpt": "Master the art of crafting effective prompts for better AI outputs.",
+        "tags": ["Prompt Engineering", "LLM"]
+      },
+      "finetuningRag": {
+        "title": "Fine-tuning vs RAG: When to Use What",
+        "excerpt": "Compare two popular approaches to customizing LLM behavior for your use case.",
+        "tags": ["Fine-tuning", "RAG", "LLM"]
+      },
+      "website": {
+        "title": "Building a Modern Personal Website",
+        "excerpt": "How I built this site with Next.js, Tailwind CSS, and a touch of AI flair.",
+        "tags": ["Next.js", "Tailwind", "Web Dev"]
+      }
+    }
+  },
+  "projectsPage": {
+    "pageTitle": "Projects",
+    "pageDescription": "Projects and experiments by Stone",
+    "badge": "My Work",
+    "title": "Projects &",
+    "titleHighlight": "Experiments",
+    "description": "A collection of things I've built, explored, and experimented with.",
+    "featuredProjects": "Featured Projects",
+    "otherProjects": "Other Projects",
+    "status": {
+      "active": "Active",
+      "beta": "Beta",
+      "archived": "Archived"
+    },
+    "code": "Code",
+    "demo": "Demo",
+    "projects": {
+      "agentFramework": {
+        "title": "AI Agent Framework",
+        "description": "A flexible framework for building autonomous AI agents with tool use capabilities. Supports multiple LLM providers and custom tool definitions.",
+        "tags": ["Python", "LangChain", "OpenAI", "Claude"]
+      },
+      "docParser": {
+        "title": "Smart Document Parser",
+        "description": "Extract structured data from documents using vision models and OCR. Supports PDFs, images, and scanned documents.",
+        "tags": ["TypeScript", "Next.js", "Claude Vision", "Tesseract"]
+      },
+      "promptLib": {
+        "title": "Prompt Library",
+        "description": "A curated collection of effective prompts for various AI tasks. Includes categorization, search, and version control.",
+        "tags": ["React", "MDX", "Tailwind", "Vercel"]
+      },
+      "ragPipeline": {
+        "title": "RAG Pipeline",
+        "description": "Production-ready RAG system with hybrid search, re-ranking, and citation support.",
+        "tags": ["Python", "FastAPI", "Pinecone", "LlamaIndex"]
+      },
+      "chatWidget": {
+        "title": "AI Chat Widget",
+        "description": "Embeddable chat widget powered by LLMs. Easy integration with any website.",
+        "tags": ["TypeScript", "Web Components", "OpenAI"]
+      },
+      "benchmark": {
+        "title": "Model Benchmark Tool",
+        "description": "Compare and evaluate different LLM models on custom datasets with detailed metrics.",
+        "tags": ["Python", "Streamlit", "Pandas"]
+      }
+    }
+  },
+  "resumePage": {
+    "pageTitle": "Resume",
+    "pageDescription": "Professional resume and experience",
+    "title": "AI Explorer & Product Builder",
+    "subtitle": "China",
+    "email": "your@email.com",
+    "download": "Download PDF",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "certifications": "Certifications",
+    "roles": {
+      "aiBuilder": {
+        "title": "AI Product Builder",
+        "company": "Independent",
+        "period": "2024 - Present",
+        "location": "Remote",
+        "description": [
+          "Building AI-powered products and applications",
+          "Exploring LLM capabilities and developing AI agents",
+          "Creating tools for developers and businesses"
+        ]
+      },
+      "entrepreneur": {
+        "title": "Tech Entrepreneur",
+        "company": "Startup",
+        "period": "2022 - 2024",
+        "location": "China",
+        "description": [
+          "Founded and scaled multiple tech products",
+          "Led product development and technical strategy",
+          "Managed cross-functional teams"
+        ]
+      },
+      "developer": {
+        "title": "Full-Stack Developer",
+        "company": "Tech Company",
+        "period": "2020 - 2022",
+        "location": "China",
+        "description": [
+          "Developed web applications using React and Node.js",
+          "Implemented CI/CD pipelines and DevOps practices",
+          "Collaborated with design and product teams"
+        ]
+      }
+    },
+    "education": {
+      "degree": "Bachelor's Degree",
+      "school": "University",
+      "period": "2016 - 2020",
+      "field": "Computer Science"
+    },
+    "certifications": {
+      "aws": {
+        "name": "AWS Certified Solutions Architect",
+        "issuer": "Amazon Web Services",
+        "date": "2023"
+      },
+      "gcp": {
+        "name": "Google Cloud Professional",
+        "issuer": "Google",
+        "date": "2022"
+      }
+    },
+    "skillCategories": {
+      "aiml": "AI/ML",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps"
+    }
   }
 }

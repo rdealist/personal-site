@@ -2,7 +2,22 @@
   "common": {
     "brand": "Stone",
     "copyright": "© {year} Stone. All rights reserved.",
-    "builtWith": "Built with {icon} using Next.js"
+    "builtWith": "Built with {icon} using Next.js",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "readMore": "Read More",
+    "viewDetails": "View Details",
+    "close": "Close",
+    "open": "Open",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "all": "All",
+    "none": "None"
   },
   "nav": {
     "home": "Home",
@@ -23,15 +38,39 @@
     "badge": "AI Explorer & Product Builder",
     "greeting": "Hi, I'm",
     "tagline": "Exploring AI, Building Products",
-    "description": "I'm passionate about the intersection of artificial intelligence and practical applications. Here I share my learning journey, projects, and insights.",
+    "headline": {
+      "explore": "Explore.",
+      "build": "Build.",
+      "innovate": "Innovate."
+    },
+    "description": "Exploring AI frontiers, building intelligent applications, and sharing insights on the journey of AI development.",
     "viewProjects": "View Projects",
     "exploreNotes": "Explore Notes",
-    "scrollToExplore": "Scroll to explore"
+    "scrollToExplore": "Scroll to explore",
+    "carousel": {
+      "skills": {
+        "item1": "AI/LLM",
+        "item2": "Full-Stack",
+        "item3": "Product Design",
+        "item4": "Open Source"
+      },
+      "stats": {
+        "item1": "3+ Projects",
+        "item2": "10+ Notes",
+        "item3": "Since 2024"
+      },
+      "capabilities": {
+        "item1": "Explore Frontiers",
+        "item2": "Build Products",
+        "item3": "Share Insights"
+      }
+    }
   },
   "about": {
     "sectionTitle": "About Me",
     "title": "Crafting the Future with",
     "titleHighlight": "AI",
+    "titleSuffix": "Innovation",
     "description": "A passionate technologist exploring the boundaries of artificial intelligence and building products that make a difference.",
     "learnMore": "Learn more about me",
     "highlights": {
@@ -136,13 +175,13 @@
     "form": {
       "title": "Send a Message",
       "name": "Name",
-      "namePlaceholder": "Your name",
+      "namePlaceholder": "Your name (e.g., Stone)\u2026",
       "email": "Email",
-      "emailPlaceholder": "your@email.com",
+      "emailPlaceholder": "you@example.com\u2026",
       "subject": "Subject",
-      "subjectPlaceholder": "What's this about?",
+      "subjectPlaceholder": "What's this about (e.g., Speaking request)\u2026",
       "message": "Message",
-      "messagePlaceholder": "Your message...",
+      "messagePlaceholder": "Your message (e.g., I'd love to collaborate)\u2026",
       "submit": "Send Message"
     },
     "info": {
@@ -194,6 +233,29 @@
     },
     "readTime": "{time} min read"
   },
+  "notes": {
+    "sectionTitle": "AI Knowledge Base",
+    "title": "Explore AI",
+    "titleHighlight": "Knowledge",
+    "description": "Systematic AI learning notes from core concepts to cutting-edge technologies",
+    "viewAll": "Browse All Notes",
+    "searchPlaceholder": "Search notes (e.g., RAG)\u2026",
+    "backToList": "Back to Notes List",
+    "viewAllNotes": "View All Notes",
+    "shareNote": "Share Note",
+    "readNote": "Read Note",
+    "quickNav": "Quick Navigation",
+    "allNotes": "All Notes",
+    "searchComingSoon": "Search coming soon",
+    "aiKnowledgeBase": "AI Knowledge Base",
+    "categories": {
+      "core": "Core Concepts",
+      "architecture": "Model Architecture",
+      "training": "Training & Learning",
+      "prompting": "Prompt Engineering",
+      "applications": "Applications"
+    }
+  },
   "cta": {
     "title": "Let's Build Something",
     "titleHighlight": "Amazing",
@@ -205,5 +267,25 @@
     "title": "Stone | AI Explorer & Product Builder",
     "description": "Personal website of Stone - exploring AI, building products, and sharing insights on technology and innovation.",
     "siteName": "Stone's Space"
+  },
+  "resume": {
+    "pageTitle": "Resume",
+    "pageDescription": "Resume of Stone - AI Explorer & Product Builder",
+    "sectionTitle": "Resume",
+    "title": "My",
+    "titleHighlight": "Resume",
+    "description": "A summary of my experience, skills, and achievements.",
+    "download": "Download PDF",
+    "viewOnline": "View Online",
+    "experience": "Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "languages": "Languages"
+  },
+  "social": {
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn",
+    "email": "Email"
   }
 }

@@ -2,7 +2,22 @@
   "common": {
     "brand": "Stone",
     "copyright": "© {year} Stone. 保留所有权利。",
-    "builtWith": "用 {icon} 和 Next.js 构建"
+    "builtWith": "用 {icon} 和 Next.js 构建",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "retry": "重试",
+    "back": "返回",
+    "next": "下一页",
+    "previous": "上一页",
+    "readMore": "阅读更多",
+    "viewDetails": "查看详情",
+    "close": "关闭",
+    "open": "打开",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "all": "全部",
+    "none": "无"
   },
   "nav": {
     "home": "首页",
@@ -23,10 +38,33 @@
     "badge": "AI 探索者 & 产品构建者",
     "greeting": "你好，我是",
     "tagline": "探索 AI，构建产品",
-    "description": "我热衷于人工智能与实际应用的结合。在这里，我分享我的学习历程、项目和见解。",
+    "headline": {
+      "explore": "探索.",
+      "build": "构建.",
+      "innovate": "创新."
+    },
+    "description": "探索 AI 前沿技术，构建智能应用，分享 AI 开发旅程中的见解与思考。",
     "viewProjects": "查看项目",
     "exploreNotes": "浏览笔记",
-    "scrollToExplore": "向下滚动探索"
+    "scrollToExplore": "向下滚动探索",
+    "carousel": {
+      "skills": {
+        "item1": "AI/LLM",
+        "item2": "全栈开发",
+        "item3": "产品设计",
+        "item4": "开源"
+      },
+      "stats": {
+        "item1": "3+ 项目",
+        "item2": "10+ 笔记",
+        "item3": "始于 2024"
+      },
+      "capabilities": {
+        "item1": "探索前沿",
+        "item2": "构建产品",
+        "item3": "分享见解"
+      }
+    }
   },
   "about": {
     "sectionTitle": "关于我",
@@ -137,13 +175,13 @@
     "form": {
       "title": "发送消息",
       "name": "姓名",
-      "namePlaceholder": "你的名字",
+      "namePlaceholder": "你的名字（例如：Stone）…",
       "email": "邮箱",
-      "emailPlaceholder": "your@email.com",
+      "emailPlaceholder": "you@example.com…",
       "subject": "主题",
-      "subjectPlaceholder": "关于什么？",
+      "subjectPlaceholder": "主题（例如：合作咨询）…",
       "message": "消息",
-      "messagePlaceholder": "你的消息...",
+      "messagePlaceholder": "你的消息（例如：想一起合作）…",
       "submit": "发送消息"
     },
     "info": {
@@ -195,6 +233,29 @@
     },
     "readTime": "{time} 分钟阅读"
   },
+  "notes": {
+    "sectionTitle": "AI 知识库",
+    "title": "探索 AI",
+    "titleHighlight": "知识库",
+    "description": "从核心概念到前沿技术,系统化的AI学习笔记",
+    "viewAll": "浏览所有笔记",
+    "searchPlaceholder": "搜索笔记（例如：RAG）…",
+    "backToList": "返回笔记列表",
+    "viewAllNotes": "查看所有笔记",
+    "shareNote": "分享笔记",
+    "readNote": "阅读笔记",
+    "quickNav": "快速导航",
+    "allNotes": "所有笔记",
+    "searchComingSoon": "搜索功能即将上线",
+    "aiKnowledgeBase": "AI Knowledge Base",
+    "categories": {
+      "core": "核心概念",
+      "architecture": "模型架构",
+      "training": "训练与学习",
+      "prompting": "提示工程",
+      "applications": "应用领域"
+    }
+  },
   "cta": {
     "title": "让我们一起构建",
     "titleHighlight": "精彩",
@@ -206,5 +267,25 @@
     "title": "Stone | AI 探索者 & 产品构建者",
     "description": "Stone 的个人网站 - 探索 AI，构建产品，分享关于技术和创新的见解。",
     "siteName": "Stone 的空间"
+  },
+  "resume": {
+    "pageTitle": "简历",
+    "pageDescription": "Stone 的简历 - AI 探索者 & 产品构建者",
+    "sectionTitle": "简历",
+    "title": "我的",
+    "titleHighlight": "简历",
+    "description": "我的经验、技能和成就概述。",
+    "download": "下载 PDF",
+    "viewOnline": "在线查看",
+    "experience": "工作经验",
+    "education": "教育背景",
+    "certifications": "认证",
+    "languages": "语言"
+  },
+  "social": {
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn",
+    "email": "邮箱"
   }
 }

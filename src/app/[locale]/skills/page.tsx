@@ -3,57 +3,52 @@
 import { useState } from "react";
 import {
   Brain,
-  Code2,
+  Cpu,
   Database,
-  Layers,
-  Terminal,
+  Eye,
+  Code,
+  Server,
   Sparkles,
   Copy,
   Check,
+  Building2,
+  Bug,
+  Database as DatabaseIcon,
+  Lightbulb,
+  Boxes,
+  Wrench,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
-const skillCategories = [
-  { key: "ai", icon: Brain },
-  { key: "frontend", icon: Code2 },
-  { key: "backend", icon: Database },
-  { key: "devops", icon: Terminal },
-];
-
-const skillLevels = {
-  llms: 90,
-  promptEng: 95,
-  rag: 85,
-  agents: 80,
-  finetuning: 70,
-  langchain: 85,
-  react: 90,
-  typescript: 85,
-  tailwind: 95,
-  html: 90,
-  framer: 75,
-  python: 85,
-  nodejs: 80,
-  fastapi: 80,
-  postgresql: 75,
-  redis: 70,
-  git: 90,
-  docker: 75,
-  vercel: 85,
-  aws: 65,
-  cicd: 70,
+const skillIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  llm: Brain,
+  agents: Cpu,
+  rag: Database,
+  fineTuning: Sparkles,
+  multimodal: Eye,
+  fullstack: Code,
 };
 
-const promptKeys = ["codeReviewer", "technicalWriter", "aiTutor"];
+const promptIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  systemArchitect: Building2,
+  codeReviewer: Bug,
+  apiDesigner: Server,
+  debuggingAssistant: Wrench,
+  sqlOptimizer: DatabaseIcon,
+  promptEngineer: Lightbulb,
+};
+
+const skillKeys = ["llm", "agents", "rag", "fineTuning", "multimodal", "fullstack"];
+const promptKeys = ["systemArchitect", "codeReviewer", "apiDesigner", "debuggingAssistant", "sqlOptimizer", "promptEngineer"];
 
 export default function SkillsPage() {
   const t = useTranslations("skillsPage");
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [copiedIndex, setCopiedIndex] = useState<string | null>(null);
 
-  const handleCopy = async (prompt: string, index: number) => {
+  const handleCopy = async (prompt: string, key: string) => {
     await navigator.clipboard.writeText(prompt);
-    setCopiedIndex(index);
+    setCopiedIndex(key);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
@@ -74,52 +69,51 @@ export default function SkillsPage() {
         {/* Skills Section */}
         <section className="mb-20">
           <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-            <Layers className="w-5 h-5 text-primary" />
+            <Boxes className="w-5 h-5 text-primary" />
             {t("technicalSkills")}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {skillCategories.map((category, index) => (
-              <div key={index} className="glass rounded-2xl p-6">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <category.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-lg">
-                    {t(`categories.${category.key}`)}
-                  </h3>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillKeys.map((key) => {
+              const Icon = skillIcons[key];
+              const tools = t.raw(`skills.${key}.tools`) as string[];
 
-                <div className="space-y-4">
-                  {Object.entries(skillLevels)
-                    .filter(([key]) => {
-                      if (category.key === "ai")
-                        return ["llms", "promptEng", "rag", "agents", "finetuning", "langchain"].includes(key);
-                      if (category.key === "frontend")
-                        return ["react", "typescript", "tailwind", "html", "framer"].includes(key);
-                      if (category.key === "backend")
-                        return ["python", "nodejs", "fastapi", "postgresql", "redis"].includes(key);
-                      if (category.key === "devops")
-                        return ["git", "docker", "vercel", "aws", "cicd"].includes(key);
-                      return false;
-                    })
-                    .map(([key, level]) => (
-                      <div key={key}>
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-sm">{t(`skills.${key}`)}</span>
-                          <span className="text-xs text-muted-foreground">{level}%</span>
-                        </div>
-                        <div className="h-2 bg-muted rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500"
-                            style={{ width: `${level}%` }}
-                          />
-                        </div>
-                      </div>
+              return (
+                <div
+                  key={key}
+                  className={cn(
+                    "group glass rounded-2xl p-6",
+                    "hover:border-primary/50 transition-all duration-300",
+                    "hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/5"
+                  )}
+                >
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors">
+                      {Icon && <Icon className="w-6 h-6 text-primary" />}
+                    </div>
+                    <h3 className="font-semibold text-lg">{t(`skills.${key}.title`)}</h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {t(`skills.${key}.description`)}
+                  </p>
+
+                  {/* Tools */}
+                  <div className="flex flex-wrap gap-2">
+                    {tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="px-2 py-1 text-xs rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                      >
+                        {tool}
+                      </span>
                     ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -131,58 +125,81 @@ export default function SkillsPage() {
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {promptKeys.map((key, index) => (
-              <div
-                key={key}
-                className={cn(
-                  "glass rounded-2xl p-6",
-                  "group hover:border-primary/50 transition-colors"
-                )}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <span className="text-xs px-2 py-1 rounded bg-primary/10 text-primary">
-                      {t(`prompts.${key}.category`)}
-                    </span>
-                    <h3 className="font-semibold text-lg mt-2">
-                      {t(`prompts.${key}.title`)}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {t(`prompts.${key}.description`)}
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(t.raw(`prompts.${key}.content`), index)}
-                    className={cn(
-                      "p-2 rounded-lg transition-all",
-                      "bg-muted hover:bg-primary/10",
-                      copiedIndex === index
-                        ? "bg-green-500/20 text-green-500"
-                        : "opacity-0 group-hover:opacity-100"
-                    )}
-                    title="Copy prompt"
-                    aria-label="Copy prompt"
-                  >
-                    {copiedIndex === index ? (
-                      <Check className="w-4 h-4" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
-                  </button>
-                </div>
+            {promptKeys.map((key) => {
+              const PromptIcon = promptIcons[key];
+              const category = t(`prompts.${key}.category`) as string;
 
-                <pre
+              return (
+                <div
+                  key={key}
                   className={cn(
-                    "p-4 rounded-xl bg-muted/50 text-sm",
-                    "overflow-x-auto whitespace-pre-wrap",
-                    "font-mono text-muted-foreground"
+                    "glass rounded-2xl overflow-hidden",
+                    "hover:border-primary/50 transition-all duration-300",
+                    "group"
                   )}
                 >
-                  {t.raw(`prompts.${key}.content`)}
-                </pre>
-              </div>
-            ))}
+                  {/* Header */}
+                  <div className="p-6 border-b border-border/50">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center shrink-0">
+                        {PromptIcon && <PromptIcon className="w-5 h-5 text-primary" />}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                            {category}
+                          </span>
+                        </div>
+                        <h3 className="font-semibold text-lg mb-1">
+                          {t(`prompts.${key}.title`)}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {t(`prompts.${key}.description`)}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Prompt Content */}
+                  <div className="p-4 bg-muted/30">
+                    <pre
+                      className={cn(
+                        "text-sm text-muted-foreground whitespace-pre-wrap",
+                        "font-mono leading-relaxed"
+                      )}
+                    >
+                      {t.raw(`prompts.${key}.content`) as string}
+                    </pre>
+                  </div>
+
+                  {/* Action */}
+                  <div className="p-4 border-t border-border/50 flex justify-end">
+                    <button
+                      type="button"
+                      onClick={() => handleCopy(t.raw(`prompts.${key}.content`) as string, key)}
+                      className={cn(
+                        "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all",
+                        "bg-primary text-primary-foreground hover:opacity-90",
+                        "hover:scale-105 active:scale-95",
+                        copiedIndex === key && "bg-green-500"
+                      )}
+                    >
+                      {copiedIndex === key ? (
+                        <>
+                          <Check className="w-4 h-4" />
+                          Copied!
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4" />
+                          Copy Prompt
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>

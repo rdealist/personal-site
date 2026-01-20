@@ -291,59 +291,86 @@
   "skillsPage": {
     "pageTitle": "Skills & Prompts",
     "pageDescription": "Technical skills and prompt templates",
-    "badge": "Capabilities",
-    "title": "Skills &",
-    "titleHighlight": "Prompts",
-    "description": "Technical skills I've developed and prompt templates I use regularly.",
-    "technicalSkills": "Technical Skills",
-    "promptTemplates": "Prompt Templates",
-    "categories": {
-      "ai": "AI & Machine Learning",
-      "frontend": "Frontend Development",
-      "backend": "Backend Development",
-      "devops": "DevOps & Tools"
-    },
+    "badge": "AI Capabilities",
+    "title": "AI Skills &",
+    "titleHighlight": "Prompt Engineering",
+    "description": "Practical AI skills and prompt templates for building intelligent applications.",
+    "technicalSkills": "AI & Development Stack",
+    "promptTemplates": "Prompt Library",
     "skills": {
-      "llms": "Large Language Models",
-      "promptEng": "Prompt Engineering",
-      "rag": "RAG Systems",
-      "agents": "AI Agents",
-      "finetuning": "Fine-tuning",
-      "langchain": "LangChain",
-      "react": "React/Next.js",
-      "typescript": "TypeScript",
-      "tailwind": "Tailwind CSS",
-      "html": "HTML/CSS",
-      "framer": "Framer Motion",
-      "python": "Python",
-      "nodejs": "Node.js",
-      "fastapi": "FastAPI",
-      "postgresql": "PostgreSQL",
-      "redis": "Redis",
-      "git": "Git",
-      "docker": "Docker",
-      "vercel": "Vercel",
-      "aws": "AWS",
-      "cicd": "CI/CD"
+      "llm": {
+        "title": "Large Language Models",
+        "description": "Working with GPT-4, Claude, Gemini, and open-source models",
+        "tools": ["OpenAI API", "Anthropic API", "Ollama", "LM Studio"]
+      },
+      "agents": {
+        "title": "AI Agents",
+        "description": "Building autonomous agents with tool use and reasoning",
+        "tools": ["LangChain", "LlamaIndex", "AutoGPT", "CrewAI"]
+      },
+      "rag": {
+        "title": "RAG Systems",
+        "description": "Retrieval-Augmented Generation for knowledge-based applications",
+        "tools": ["Vector DBs", "Embeddings", "Chunking", "Re-ranking"]
+      },
+      "fineTuning": {
+        "title": "Fine-tuning",
+        "description": "Customizing models for specific tasks and domains",
+        "tools": ["LoRA", "QLoRA", "Hugging Face", "Axolotl"]
+      },
+      "multimodal": {
+        "title": "Multimodal AI",
+        "description": "Vision, audio, and cross-modal applications",
+        "tools": ["GPT-4V", "Claude Vision", "Whisper", "LLaVA"]
+      },
+      "fullstack": {
+        "title": "Full-Stack Development",
+        "description": "Building modern web applications with AI integration",
+        "tools": ["Next.js", "React", "TypeScript", "Tailwind CSS"]
+      }
     },
     "prompts": {
+      "systemArchitect": {
+        "title": "System Architecture Designer",
+        "category": "Architecture",
+        "description": "Design scalable system architecture with best practices",
+        "icon": "architecture",
+        "content": "You are an expert system architect. Design a system architecture for:\n\n**Requirements:**\n{requirements}\n\n**Consider:**\n1. Scalability and performance\n2. Data consistency and availability\n3. Security and compliance\n4. Cost optimization\n5. Operational complexity\n\n**Provide:**\n- High-level architecture diagram\n- Component responsibilities\n- Data flow and communication patterns\n- Technology stack recommendations\n- Potential bottlenecks and mitigation strategies"
+      },
       "codeReviewer": {
-        "title": "Code Reviewer",
+        "title": "Expert Code Reviewer",
         "category": "Development",
-        "description": "A prompt for reviewing code with best practices in mind",
-        "content": "You are an expert code reviewer. Review the following code for:\n1. Bugs and potential issues\n2. Performance optimizations\n3. Security vulnerabilities\n4. Code style and readability\n5. Best practices\n\nProvide specific, actionable feedback with examples."
+        "description": "Comprehensive code review with security and performance focus",
+        "icon": "code",
+        "content": "You are a senior engineer reviewing code for production. Analyze:\n\n**Code:**\n```{language}\n{code}\n```\n\n**Review Checklist:**\n1. **Correctness**: Bugs, edge cases, error handling\n2. **Security**: Injection risks, authentication, data validation\n3. **Performance**: Time/space complexity, optimization opportunities\n4. **Maintainability**: Code clarity, naming, documentation\n5. **Best Practices**: Design patterns, SOLID principles\n\n**Format:**\n- Critical issues (must fix)\n- Improvements (should fix)\n- Suggestions (nice to have)\n\nProvide specific examples with corrected code."
       },
-      "technicalWriter": {
-        "title": "Technical Writer",
-        "category": "Documentation",
-        "description": "Generate clear technical documentation",
-        "content": "You are a technical writer. Create documentation for the following:\n- Start with a clear overview\n- Include usage examples\n- Document all parameters/options\n- Add troubleshooting tips\n- Use clear, concise language"
+      "apiDesigner": {
+        "title": "API Design Specialist",
+        "category": "Backend",
+        "description": "Design RESTful/GraphQL APIs with proper standards",
+        "icon": "api",
+        "content": "Design a {api_type} API for:\n{use_case}\n\n**Requirements:**\n{requirements}\n\n**Deliverables:**\n1. Endpoint structure with routes\n2. Request/response schemas\n3. Authentication & authorization\n4. Error handling standards\n5. Rate limiting strategy\n6. Documentation outline\n\nFollow REST/GraphQL best practices including:\n- Proper HTTP status codes\n- Consistent naming conventions\n- Versioning strategy\n- Pagination for lists\n- Filtering and sorting options"
       },
-      "aiTutor": {
-        "title": "AI Tutor",
-        "category": "Education",
-        "description": "Explain complex concepts in simple terms",
-        "content": "You are a patient and knowledgeable tutor. Explain the concept as if teaching someone new to the field:\n1. Start with a simple analogy\n2. Build up to the technical details\n3. Provide practical examples\n4. Check for understanding with questions"
+      "debuggingAssistant": {
+        "title": "Debugging Expert",
+        "category": "Debugging",
+        "description": "Systematic approach to identifying and fixing bugs",
+        "icon": "bug",
+        "content": "Help debug this issue systematically:\n\n**Problem:**\n{problem_description}\n\n**Error:**\n```\n{error_message}\n```\n\n**Code Context:**\n```{language}\n{relevant_code}\n```\n\n**Debugging Process:**\n1. Analyze the error message and stack trace\n2. Identify the root cause (not just symptoms)\n3. Explain why this error occurs\n4. Provide step-by-step fix\n5. Suggest preventive measures\n6. Add appropriate tests\n\nBe thorough and explain your reasoning."
+      },
+      "sqlOptimizer": {
+        "title": "SQL Query Optimizer",
+        "category": "Database",
+        "description": "Optimize SQL queries for performance and readability",
+        "icon": "database",
+        "content": "Optimize this SQL query:\n\n**Query:**\n```sql\n{query}\n```\n\n**Schema:**\n{schema_info}\n\n**Database:** {database_type}\n\n**Optimize for:**\n1. Performance (execution time, resource usage)\n2. Readability and maintainability\n3. Proper indexing\n\n**Provide:**\n- Optimized query with explanation\n- Before/after execution plan comparison\n- Suggested indexes (if needed)\n- Performance improvement estimates"
+      },
+      "promptEngineer": {
+        "title": "Prompt Engineering Guide",
+        "category": "AI",
+        "description": "Craft effective prompts for better AI responses",
+        "icon": "sparkles",
+        "content": "Help improve this prompt:\n\n**Current Prompt:**\n{current_prompt}\n\n**Goal:**\n{goal}\n\n**Optimize using:**\n1. **Clarity**: Specific, unambiguous instructions\n2. **Context**: Relevant background information\n3. **Format**: Desired output structure\n4. **Examples**: Few-shot examples if helpful\n5. **Constraints**: Limitations and guidelines\n\n**Provide:**\n- Improved prompt with techniques used\n- Explanation of why it's better\n- Alternative variations for different use cases"
       }
     }
   },

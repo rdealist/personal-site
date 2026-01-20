@@ -1,0 +1,24 @@
+{
+  "name": "Stone | AI Explorer & Product Builder",
+  "short_name": "Stone",
+  "description": "Personal website of Stone - exploring AI, building products, and sharing insights.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e17",
+  "theme_color": "#FF4D94",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

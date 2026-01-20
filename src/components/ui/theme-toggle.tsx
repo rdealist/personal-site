@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Moon, Sun, Monitor } from "lucide-react";
+import { MoonIcon, SunIcon } from "@/components/icons/brand-icons";
 import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
@@ -37,9 +37,9 @@ export function ThemeToggle() {
       )}
       aria-label="Toggle theme"
     >
-      {theme === "light" && <Sun className="w-4 h-4 text-foreground" />}
-      {theme === "dark" && <Moon className="w-4 h-4 text-foreground" />}
-      {theme === "system" && <Monitor className="w-4 h-4 text-foreground" />}
+      {theme === "light" && <SunIcon size={16} />}
+      {theme === "dark" && <MoonIcon size={16} />}
+      {theme === "system" && <SunIcon size={16} />}
     </button>
   );
 }

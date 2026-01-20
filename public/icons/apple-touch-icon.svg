@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4D94;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3399FF;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="aglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Soft background -->
+  <rect width="180" height="180" rx="40" fill="url(#ag)" opacity="0.05"/>
+
+  <!-- Main Icon -->
+  <g filter="url(#aglow)">
+    <path
+      d="M 50 50 Q 55 50 57 55 L 85 130 Q 88 140 93 140 Q 98 140 101 130 L 90 90 L 95 70 L 115 130 Q 118 140 123 140 Q 128 140 130 130"
+      fill="none"
+      stroke="url(#ag)"
+      stroke-width="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <circle cx="90" cy="90" r="8" fill="url(#ag)"/>
+  </g>
+
+  <!-- Decorative elements -->
+  <g opacity="0.2">
+    <circle cx="35" cy="140" r="5" fill="#FF4D94"/>
+    <circle cx="145" cy="40" r="5" fill="#3399FF"/>
+  </g>
+</svg>

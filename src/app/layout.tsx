@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     "Technology",
   ],
   authors: [{ name: "Stone" }],
+  icons: {
+    icon: [
+      { url: "/icons/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/icons/apple-touch-icon.svg", type: "image/svg+xml", sizes: "180x180" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "zh_CN",
@@ -43,10 +51,15 @@ export const metadata: Metadata = {
     description:
       "Personal website of Stone - exploring AI, building products, and sharing insights.",
   },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FF4D94" },
+    { media: "(prefers-color-scheme: dark)", color: "#2567F2" },
+  ],
   robots: {
     index: true,
     follow: true,
   },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -54,5 +67,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <html suppressHydrationWarning>
+      <body className={`${spaceGrotesk.variable} ${firaCode.variable}`}>
+        {children}
+      </body>
+    </html>
+  );
 }

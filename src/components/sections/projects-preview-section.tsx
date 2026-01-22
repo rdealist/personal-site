@@ -106,7 +106,7 @@ export function ProjectsPreviewSection() {
               key={index}
               className={cn(
                 "project-card group rounded-2xl glass overflow-hidden",
-                "hover:border-primary/50 transition-all duration-300",
+                "hover:border-primary/50 transition-[transform,box-shadow,border-color] duration-300",
                 "hover:scale-[1.02] hover:shadow-xl",
               )}
             >
@@ -146,6 +146,7 @@ export function ProjectsPreviewSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-foreground transition-colors"
+                      aria-label="GitHub"
                     >
                       <Github className="w-5 h-5" />
                     </a>
@@ -156,6 +157,7 @@ export function ProjectsPreviewSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-foreground transition-colors"
+                      aria-label="Open demo"
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>
@@ -173,7 +175,7 @@ export function ProjectsPreviewSection() {
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
               "glass font-medium",
-              "hover:bg-primary/10 transition-all group",
+              "hover:bg-primary/10 transition-colors group",
             )}
           >
             {t("viewAll")}

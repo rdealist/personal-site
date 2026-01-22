@@ -65,7 +65,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-200 cursor-pointer",
+                    "w-11 h-11 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer",
                     "glass border border-border/50",
                     "hover:bg-primary/5 hover:border-primary/30",
                     "text-muted-foreground hover:text-primary",

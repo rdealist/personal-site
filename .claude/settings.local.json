@@ -1,7 +1,26 @@
 {
   "permissions": {
     "allow": [
-      "mcp__acp__Bash"
+      "mcp__acp__Bash",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(curl:*)",
+      "mcp__playwright__browser_close",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "mcp-feedback-enhanced",
+    "Sequential Thinking",
+    "Shrimp Task Manager",
+    "filesystem",
+    "magic",
+    "playwright",
+    "magic-ui",
+    "time-mcp",
+    "chrome-devtools"
+  ]
 }

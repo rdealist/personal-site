@@ -113,7 +113,7 @@ export function SkillsPreviewSection() {
               key={index}
               className={cn(
                 "skill-card p-6 rounded-2xl glass",
-                "hover:border-primary/50 transition-all duration-300",
+                "hover:border-primary/50 transition-colors duration-300",
                 "group",
               )}
             >
@@ -156,7 +156,7 @@ export function SkillsPreviewSection() {
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
               "glass font-medium",
-              "hover:bg-primary/10 transition-all group",
+              "hover:bg-primary/10 transition-colors group",
             )}
           >
             {t("viewAll")}

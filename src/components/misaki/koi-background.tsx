@@ -17,9 +17,10 @@ import { NoiseOverlay } from "@/components/ui/noise-overlay";
 
 interface FluidPlaneProps {
   palette: string[];
+  reduceMotion: boolean;
 }
 
-const FluidPlane = ({ palette }: FluidPlaneProps) => {
+const FluidPlane = ({ palette, reduceMotion }: FluidPlaneProps) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const { size, viewport } = useThree();
 
@@ -41,16 +42,20 @@ const FluidPlane = ({ palette }: FluidPlaneProps) => {
 
   useFrame((state) => {
     if (meshRef.current) {
-      const time = state.clock.getElapsedTime();
-
       // Update Uniforms
-      // @ts-ignore
-      meshRef.current.material.uniforms.uTime.value = time;
       // @ts-ignore
       meshRef.current.material.uniforms.uResolution.value.set(
         size.width * state.viewport.dpr,
         size.height * state.viewport.dpr
       );
+
+      if (reduceMotion) {
+        return;
+      }
+
+      const time = state.clock.getElapsedTime();
+      // @ts-ignore
+      meshRef.current.material.uniforms.uTime.value = time;
 
       // Color Cycling Logic
       // Cycle speed
@@ -101,9 +106,18 @@ const FluidPlane = ({ palette }: FluidPlaneProps) => {
 export const KoiBackground = () => {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReduceMotion(media.matches);
+    updatePreference();
+    media.addEventListener("change", updatePreference);
+    return () => media.removeEventListener("change", updatePreference);
   }, []);
 
   // Misaki-compliant Color Palettes
@@ -144,6 +158,7 @@ export const KoiBackground = () => {
       >
         <FluidPlane
           palette={activePalette}
+          reduceMotion={reduceMotion}
         />
       </Canvas>
 

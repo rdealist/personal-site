@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -13,21 +13,25 @@ const features = [
 
 export const FeatureTicker = () => {
     const [activeFeature, setActiveFeature] = useState(0);
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
+        if (shouldReduceMotion) return;
         const interval = setInterval(() => {
             setActiveFeature((prev) => (prev + 1) % features.length);
         }, 3000);
         return () => clearInterval(interval);
-    }, []);
+    }, [shouldReduceMotion]);
 
     return (
         <div className="flex flex-col gap-4 w-full max-w-md mx-auto mt-12">
             {features.map((feature, index) => (
-                <div
+                <button
                     key={feature.id}
-                    className="relative group cursor-pointer"
+                    type="button"
+                    className="relative group w-full text-left bg-transparent border-0 p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     onClick={() => setActiveFeature(index)}
+                    aria-pressed={activeFeature === index}
                 >
                     <div className="flex justify-between items-center mb-1">
                         <span className={cn(
@@ -49,10 +53,10 @@ export const FeatureTicker = () => {
                         {/* Active Progress Bar */}
                         {activeFeature === index && (
                             <motion.div
-                                className="h-full bg-gradient-to-r from-[rgb(var(--misaki-pink))] to-[rgb(var(--misaki-blue))]"
-                                initial={{ width: "0%" }}
-                                animate={{ width: "100%" }}
-                                transition={{ duration: 3, ease: "linear" }}
+                                className="h-full origin-left bg-gradient-to-r from-[rgb(var(--misaki-pink))] to-[rgb(var(--misaki-blue))]"
+                                initial={shouldReduceMotion ? false : { scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={shouldReduceMotion ? { duration: 0 } : { duration: 3, ease: "linear" }}
                             />
                         )}
                         {/* Completed State */}
@@ -60,7 +64,7 @@ export const FeatureTicker = () => {
                             <div className="h-full w-full bg-foreground/20" />
                         )}
                     </div>
-                </div>
+                </button>
             ))}
         </div>
     );

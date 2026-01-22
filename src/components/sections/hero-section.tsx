@@ -98,7 +98,7 @@ export function HeroSection() {
             className={cn(
               "group inline-flex items-center gap-2 px-8 py-4 rounded-xl",
               "bg-primary text-primary-foreground font-semibold text-base",
-              "hover:opacity-90 transition-all duration-200 cursor-pointer",
+              "hover:opacity-90 transition-[opacity,box-shadow] duration-200 cursor-pointer",
               "shadow-lg hover:shadow-xl",
             )}
           >
@@ -111,7 +111,7 @@ export function HeroSection() {
             className={cn(
               "inline-flex items-center gap-2 px-8 py-4 rounded-xl",
               "glass font-semibold text-base border border-border/50",
-              "hover:bg-primary/5 transition-all duration-200 cursor-pointer",
+              "hover:bg-primary/5 transition-colors duration-200 cursor-pointer",
             )}
           >
             {t("exploreNotes")}

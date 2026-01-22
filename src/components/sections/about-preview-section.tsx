@@ -90,8 +90,8 @@ export function AboutPreviewSection() {
               key={index}
               className={cn(
                 "about-card p-6 rounded-2xl glass",
-                "hover:border-primary/50 transition-all duration-300",
-                "group cursor-pointer hover:scale-105",
+                "hover:border-primary/50 transition-[transform,border-color] duration-300",
+                "group hover:scale-105",
               )}
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -114,7 +114,7 @@ export function AboutPreviewSection() {
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
               "glass font-medium",
-              "hover:bg-primary/10 transition-all group",
+              "hover:bg-primary/10 transition-colors group",
             )}
           >
             {t("learnMore")}

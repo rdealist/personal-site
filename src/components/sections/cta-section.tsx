@@ -71,7 +71,7 @@ export function CTASection() {
                 className={cn(
                   "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
                   "bg-primary text-primary-foreground font-medium",
-                  "hover:opacity-90 transition-all hover:scale-105",
+                  "hover:opacity-90 transition-[transform,opacity] hover:scale-105",
                   "glow-primary",
                 )}
               >
@@ -85,7 +85,7 @@ export function CTASection() {
                 className={cn(
                   "inline-flex items-center gap-2 px-6 py-3 rounded-xl",
                   "glass font-medium",
-                  "hover:bg-primary/10 transition-all",
+                  "hover:bg-primary/10 transition-colors",
                 )}
               >
                 <MessageSquare className="w-5 h-5" />

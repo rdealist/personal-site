@@ -78,11 +78,13 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    autoComplete="name"
                     placeholder={t("form.namePlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl",
                       "bg-muted border border-border",
-                      "focus:outline-none focus:ring-2 focus:ring-primary/50",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
                       "placeholder:text-muted-foreground",
                     )}
                   />
@@ -98,11 +100,15 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    autoComplete="email"
+                    inputMode="email"
+                    spellCheck={false}
                     placeholder={t("form.emailPlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl",
                       "bg-muted border border-border",
-                      "focus:outline-none focus:ring-2 focus:ring-primary/50",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
                       "placeholder:text-muted-foreground",
                     )}
                   />
@@ -118,11 +124,13 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
+                    autoComplete="off"
                     placeholder={t("form.subjectPlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl",
                       "bg-muted border border-border",
-                      "focus:outline-none focus:ring-2 focus:ring-primary/50",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
                       "placeholder:text-muted-foreground",
                     )}
                   />
@@ -137,12 +145,14 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={5}
+                    autoComplete="off"
                     placeholder={t("form.messagePlaceholder")}
                     className={cn(
                       "w-full px-4 py-3 rounded-xl resize-none",
                       "bg-muted border border-border",
-                      "focus:outline-none focus:ring-2 focus:ring-primary/50",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
                       "placeholder:text-muted-foreground",
                     )}
                   />
@@ -153,7 +163,7 @@ export default function ContactPage() {
                   className={cn(
                     "w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl",
                     "bg-primary text-primary-foreground font-medium",
-                    "hover:opacity-90 transition-all hover:scale-[1.02]",
+                    "hover:opacity-90 transition-[transform,opacity] hover:scale-[1.02]",
                     "glow-primary",
                   )}
                 >

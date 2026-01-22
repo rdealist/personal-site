@@ -114,7 +114,7 @@ export default function AboutPage() {
                   key={index}
                   className={cn(
                     "glass rounded-2xl p-6 text-center",
-                    "hover:border-primary/50 transition-all",
+                    "hover:border-primary/50 transition-colors",
                   )}
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">

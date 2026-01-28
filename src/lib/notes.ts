@@ -220,6 +220,17 @@ export function getAllTags(): string[] {
 }
 
 /**
+ * Get notes by tag
+ */
+export function getNotesByTag(tag: string): Note[] {
+  if (!tag || tag === "all") {
+    return getAllNotes();
+  }
+  const allNotes = getAllNotes();
+  return allNotes.filter((note) => note.metadata.tags?.includes(tag));
+}
+
+/**
  * Get featured notes
  */
 export function getFeaturedNotes(): Note[] {

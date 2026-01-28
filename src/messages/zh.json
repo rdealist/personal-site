@@ -246,6 +246,8 @@
     "readNote": "阅读笔记",
     "quickNav": "快速导航",
     "allNotes": "所有笔记",
+    "featured": "精选",
+    "recent": "更多笔记",
     "searchComingSoon": "搜索功能即将上线",
     "aiKnowledgeBase": "AI Knowledge Base",
     "categories": {

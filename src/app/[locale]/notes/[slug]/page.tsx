@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Tag } from "lucide-react";
@@ -7,6 +8,8 @@ import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ShareButton } from "@/components/notes/share-button";
+import { CodeBlock } from "@/components/notes/code-block";
+import { ReadingProgress } from "@/components/notes/reading-progress";
 
 interface Props {
   params: Promise<{
@@ -44,6 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function NotePage({ params }: Props) {
+  const t = useTranslations("notes");
   const { slug } = await params;
   console.log("[NotePage] Requesting slug:", slug);
 
@@ -59,7 +63,9 @@ export default async function NotePage({ params }: Props) {
   }
 
   return (
-    <div className="pt-24 pb-16">
+    <>
+      <ReadingProgress />
+      <div className="pt-24 pb-16">
       <div className="container mx-auto px-4">
         {/* Back Button */}
         <Link
@@ -67,7 +73,7 @@ export default async function NotePage({ params }: Props) {
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
-          返回笔记列表
+          {t("backToList")}
         </Link>
 
         {/* Article Header */}
@@ -96,7 +102,7 @@ export default async function NotePage({ params }: Props) {
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Tag className="w-4 h-4" />
-                <span>AI Knowledge Base</span>
+                <span>{t("aiKnowledgeBase")}</span>
               </div>
             </div>
           </header>
@@ -120,16 +126,15 @@ export default async function NotePage({ params }: Props) {
               // Strong and emphasis
               "prose-strong:text-foreground prose-strong:font-bold",
               "prose-em:text-muted-foreground",
-              // Code
+              // Code (inline)
               "prose-code:text-primary prose-code:bg-primary/10",
               "prose-code:px-2 prose-code:py-1 prose-code:rounded-md",
               "prose-code:text-sm prose-code:font-mono prose-code:font-semibold",
               "prose-code:before:content-none prose-code:after:content-none",
               "prose-code:border prose-code:border-primary/20",
-              // Pre (code blocks)
-              "prose-pre:bg-muted prose-pre:border prose-pre:border-border",
-              "prose-pre:rounded-xl prose-pre:p-6 prose-pre:my-8",
-              "prose-pre:overflow-x-auto prose-pre:shadow-lg",
+              // Pre (code blocks) - disabled default styles, use CodeBlock component
+              "prose-pre:bg-transparent prose-pre:border-none prose-pre:p-0 prose-pre:m-0",
+              "prose-pre:overflow-visible prose-pre:shadow-none",
               // Blockquotes
               "prose-blockquote:border-l-4 prose-blockquote:border-primary",
               "prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-xl",
@@ -158,7 +163,18 @@ export default async function NotePage({ params }: Props) {
               "prose-hr:border-border prose-hr:my-12",
             )}
           >
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                pre: ({ children }) => {
+                  // Extract code content from children
+                  const codeChild = children as React.ReactElement;
+                  const codeContent = codeChild?.props?.children || "";
+                  const language = codeChild?.props?.className?.replace("language-", "") || "";
+                  return <CodeBlock language={language}>{String(codeContent)}</CodeBlock>;
+                },
+              }}
+            >
               {note.content}
             </ReactMarkdown>
           </div>
@@ -174,7 +190,7 @@ export default async function NotePage({ params }: Props) {
                 )}
               >
                 <ArrowLeft className="w-4 h-4" />
-                查看所有笔记
+                {t("viewAllNotes")}
               </Link>
 
               <ShareButton
@@ -186,5 +202,6 @@ export default async function NotePage({ params }: Props) {
         </article>
       </div>
     </div>
+    </>
   );
 }

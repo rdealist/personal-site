@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
-import { ArrowLeft, Tag } from "lucide-react";
+import { ArrowLeft, Tag, Calendar, Clock } from "lucide-react";
 import { getAllNotes, getNoteBySlug } from "@/lib/notes";
 import { cn } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
@@ -10,6 +10,7 @@ import remarkGfm from "remark-gfm";
 import { ShareButton } from "@/components/notes/share-button";
 import { CodeBlock } from "@/components/notes/code-block";
 import { ReadingProgress } from "@/components/notes/reading-progress";
+import { formatDate } from "@/lib/utils";
 
 interface Props {
   params: Promise<{
@@ -99,12 +100,37 @@ export default async function NotePage({ params }: Props) {
             )}
 
             {/* Meta Info */}
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              {/* Date */}
               <div className="flex items-center gap-2">
-                <Tag className="w-4 h-4" />
-                <span>{t("aiKnowledgeBase")}</span>
+                <Calendar className="w-4 h-4" />
+                <span>{formatDate(note.metadata.date || "")}</span>
               </div>
+              {/* Read Time */}
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                <span>{note.metadata.readTime || "5 min"}</span>
+              </div>
+              {/* Category Badge */}
+              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 text-primary text-xs font-semibold border border-primary/20">
+                {note.metadata.category}
+              </span>
             </div>
+
+            {/* Tags */}
+            {note.metadata.tags && note.metadata.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-4">
+                {note.metadata.tags.slice(0, 4).map((tag) => (
+                  <Link
+                    key={tag}
+                    href={`/notes?tag=${tag}`}
+                    className="px-3 py-1 rounded-lg bg-muted/50 text-muted-foreground text-xs hover:bg-primary/10 hover:text-primary transition-colors"
+                  >
+                    #{tag}
+                  </Link>
+                ))}
+              </div>
+            )}
           </header>
 
           {/* Content */}

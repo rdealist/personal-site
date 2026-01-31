@@ -539,5 +539,9 @@
       "backend": "后端",
       "devops": "DevOps"
     }
+  },
+  "copy": {
+    "code": "复制代码",
+    "copied": "已复制!"
   }
 }

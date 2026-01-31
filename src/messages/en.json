@@ -539,5 +539,9 @@
       "backend": "Backend",
       "devops": "DevOps"
     }
+  },
+  "copy": {
+    "code": "Copy code",
+    "copied": "Copied!"
   }
 }

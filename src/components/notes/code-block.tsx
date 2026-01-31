@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -11,6 +12,7 @@ interface CodeBlockProps {
 }
 
 export function CodeBlock({ children, className, language }: CodeBlockProps) {
+  const t = useTranslations("copy");
   const [copied, setCopied] = useState(false);
   const codeContent = children.trim();
 
@@ -30,7 +32,7 @@ export function CodeBlock({ children, className, language }: CodeBlockProps) {
       <button
         onClick={handleCopy}
         className="absolute top-3 right-3 p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 bg-muted/50 hover:bg-primary/20 focus:opacity-100"
-        aria-label={copied ? "已复制" : "复制代码"}
+        aria-label={copied ? t("copied") : t("code")}
       >
         {copied ? (
           <Check className="w-4 h-4 text-green-500" />

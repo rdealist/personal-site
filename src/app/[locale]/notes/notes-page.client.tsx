@@ -1,19 +1,23 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Calendar, Clock, Tag, Search, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Note, getAllNotes, getAllTags } from "@/lib/notes";
+import { Note } from "@/lib/notes";
 
-export default function NotesPage() {
+interface NotesPageClientProps {
+  initialNotes: Note[];
+  initialTags: string[];
+}
+
+export default function NotesPageClient({ initialNotes, initialTags }: NotesPageClientProps) {
   const t = useTranslations("notes");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  const allNotes = useMemo(() => getAllNotes(), []);
-  const allTags = useMemo(() => getAllTags(), []);
+  const allNotes = useMemo(() => initialNotes, [initialNotes]);
+  const allTags = useMemo(() => initialTags, [initialTags]);
 
   const filteredNotes = useMemo(() => {
     if (!selectedTag) return allNotes;

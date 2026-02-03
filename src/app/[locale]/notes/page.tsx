@@ -1,5 +1,6 @@
-import { Metadata } from "next";
+import { getAllNotes, getAllTags } from "@/lib/notes";
 import NotesPageClient from "./notes-page.client";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Notes | AI Knowledge Base",
@@ -8,5 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function NotesPage() {
-  return <NotesPageClient />;
+  const allNotes = getAllNotes();
+  const allTags = getAllTags();
+
+  return <NotesPageClient initialNotes={allNotes} initialTags={allTags} />;
 }
